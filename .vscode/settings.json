@@ -24,7 +24,7 @@
   "material-icon-theme.files.associations": {},
   "material-icon-theme.folders.associations": {
     "environments": "Config",
-    "app": "Global"
+    "app": "global"
   },
   "material-icon-theme.folders.color": "#90a4ae",
   "material-icon-theme.folders.theme": "specific",
