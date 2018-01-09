@@ -31,5 +31,11 @@
   "material-icon-theme.hidesExplorerArrows": false,
   "material-icon-theme.languages.associations": {},
   "material-icon-theme.showUpdateMessage": true,
-  "material-icon-theme.showWelcomeMessage": true
+  "material-icon-theme.showWelcomeMessage": true,
+  "cSpell.words": [
+    "binaria",
+    "codelyzer",
+    "jasminewd",
+    "types"
+  ]
 }
