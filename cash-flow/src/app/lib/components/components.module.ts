@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { TitleComponent } from './nav/title/title.component';
+import { UserLoginComponent } from './nav/user-login/user-login.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [NavComponent, FooterComponent, TitleComponent],
+  declarations: [NavComponent, FooterComponent, TitleComponent, UserLoginComponent],
   exports: [NavComponent, FooterComponent]
 })
 export class ComponentsModule { }

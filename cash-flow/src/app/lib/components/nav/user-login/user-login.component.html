@@ -1,0 +1,5 @@
+<a *ngIf="userIsAnonymous$ | async; else logged"
+   routerLink="/credentials/login">Log In</a>
+<ng-template #logged>
+  <i>Hello!!!</i>
+</ng-template>
