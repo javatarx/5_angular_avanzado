@@ -5,21 +5,22 @@ import { BusService } from './lib/bus.service';
 import { CatchInterceptorService } from './lib/catch-interceptor.service';
 import { ComponentsModule } from './lib/components/components.module';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { NotFoundComponent } from './views/not-found/not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TokenInterceptorService } from './lib/token-interceptor.service';
+import { NotFoundModule } from './views/not-found/not-found.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NotFoundComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     ComponentsModule,
+    HttpClientModule,
+    NotFoundModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
@@ -36,6 +37,6 @@ import { TokenInterceptorService } from './lib/token-interceptor.service';
     },
   ],
   bootstrap: [AppComponent],
-  exports: [NotFoundComponent]
+  exports: []
 })
 export class AppModule { }
