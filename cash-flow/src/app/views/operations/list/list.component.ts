@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Operation } from '../operation.class';
 
 @Component({
   selector: 'cf-list',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ListComponent implements OnInit {
+  @Input() public numberOfOperations = 0;
+  @Input() public operations: Operation[] = [];
+  @Output() public delete = new EventEmitter<Operation>();
 
-  constructor() { }
+  public title = 'List of Operations';
+  constructor() {}
 
-  ngOnInit() {
+  public ngOnInit() {}
+
+  public deleteOperation(operation: Operation) {
+    this.delete.emit(operation);
   }
-
 }

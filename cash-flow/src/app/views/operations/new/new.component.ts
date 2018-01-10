@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Operation } from '../operation.class';
 
 @Component({
   selector: 'cf-new',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NewComponent implements OnInit {
+  @Input() public numberOfOperations = 0;
+  @Output() public save = new EventEmitter<Operation>();
 
-  constructor() { }
+  public kindsOfOperations = ['Income', 'Expense'];
+  public operation: Operation = new Operation();
+  public title = 'New Operation';
 
-  ngOnInit() {
+  constructor() {}
+
+  public ngOnInit() {}
+
+  public saveOperation() {
+    this.save.emit(this.operation);
+    this.operation = new Operation();
   }
-
 }
