@@ -1,24 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {
+  async,
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+import { BusService } from '../../../lib/bus.service';
 import { NavComponent } from './nav.component';
 import { TitleComponent } from './title/title.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { BusService } from '../../../lib/bus.service';
 
 describe('NavComponent', () => {
   let component: NavComponent;
   let fixture: ComponentFixture<NavComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [NavComponent, TitleComponent, UserLoginComponent],
-      providers: [
-        BusService
-      ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          NavComponent,
+          TitleComponent,
+          UserLoginComponent
+        ],
+        providers: [BusService]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
-
+  );
   beforeEach(() => {
     fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
