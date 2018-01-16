@@ -1,17 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ItemComponent } from './item.component';
 import { ActivatedRoute } from '@angular/router';
-import { OperationsService } from '../operations.service';
 import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
+import { OperationsService } from '../operations.service';
+import { ItemComponent } from './item.component';
 
 describe('ItemComponent', () => {
   const fakeActivatedRoute = {
     snapshot: { params: { id: 1 } }
   };
   const fakeOperationsService = {
-    getOperationById$: function (id) {
+    getOperationById$ (id) {
       console.log(id);
       return from(null);
     }

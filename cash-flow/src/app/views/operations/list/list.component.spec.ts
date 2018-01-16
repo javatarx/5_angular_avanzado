@@ -1,11 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ListComponent } from './list.component';
-import { OperationsRoutingModule } from '../operations.routing';
-import { OperationsComponent } from '../operations.component';
+import { FormsModule } from '@angular/forms';
 import { ItemComponent } from '../item/item.component';
 import { NewComponent } from '../new/new.component';
-import { FormsModule } from '@angular/forms';
+import { OperationsComponent } from '../operations.component';
+import { OperationsRoutingModule } from '../operations.routing';
+import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
   let component: ListComponent;

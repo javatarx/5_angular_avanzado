@@ -20,7 +20,9 @@ describe('NavComponent', () => {
           TitleComponent,
           UserLoginComponent
         ],
-        providers: [BusService]
+        providers: [
+          BusService
+        ]
       }).compileComponents();
     })
   );

@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { OperationsComponent } from './operations.component';
-import { ListComponent } from './list/list.component';
-import { NewComponent } from './new/new.component';
-import { OperationsRoutingModule } from './operations.routing';
-import { ItemComponent } from './item/item.component';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs/observable/from';
+import { ItemComponent } from './item/item.component';
+import { ListComponent } from './list/list.component';
+import { NewComponent } from './new/new.component';
+import { OperationsComponent } from './operations.component';
+import { OperationsRoutingModule } from './operations.routing';
 import { OperationsService } from './operations.service';
 
 describe('OperationsComponent', () => {
   const fakeOperationsService = {
-    getOperationsList$: function (d) {
+    getOperationsList$ (d) {
       return from([]);
     },
-    getNumberOfOperations$: function () {
+    getNumberOfOperations$ () {
       return from(null);
     }
   };

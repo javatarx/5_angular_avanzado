@@ -1,13 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CredentialsComponent } from './credentials.component';
 import { FormsModule } from '@angular/forms';
-import { CredentialsService } from './credentials.service';
-import { CredentialsRoutingModule } from './credentials.routing';
-import { BusService } from '../../lib/bus.service';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { BusService } from '../../lib/bus.service';
+import { CredentialsComponent } from './credentials.component';
+import { CredentialsRoutingModule } from './credentials.routing';
+import { CredentialsService } from './credentials.service';
 
 describe('CredentialsComponent', () => {
   const fakeActivatedRoute = {

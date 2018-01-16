@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewComponent } from './new.component';
 import { FormsModule } from '@angular/forms';
+import { NewComponent } from './new.component';
 
 describe('NewComponent', () => {
   let component: NewComponent;

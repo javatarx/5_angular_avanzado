@@ -108,6 +108,14 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
+    "no-submodule-imports": [
+      true,
+      "rxjs",
+      "@angular/platform-browser",
+      "@angular/core/testing",
+      "@angular/router/testing",
+      "@angular/common/http/testing"
+    ],
     "complexity": ["warn", 4],
     "max-depth": ["warn", 2],
     "max-len": ["warn", 64],
