@@ -1,14 +1,40 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CredentialsComponent } from './credentials.component';
+import { FormsModule } from '@angular/forms';
+import { CredentialsService } from './credentials.service';
+import { CredentialsRoutingModule } from './credentials.routing';
+import { BusService } from '../../lib/bus.service';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('CredentialsComponent', () => {
+  const fakeActivatedRoute = {
+    snapshot: {
+      data: {
+        alternate: 'Registration',
+        credential: { email: 'admin@api-base.com', password: '1234' },
+        title: 'LogIn'
+      }
+    }
+  };
+  const fakeCredentialsService = {};
   let component: CredentialsComponent;
   let fixture: ComponentFixture<CredentialsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CredentialsComponent]
+      imports: [CredentialsRoutingModule, FormsModule, RouterTestingModule],
+      declarations: [CredentialsComponent],
+      providers: [
+        {
+          provide: ActivatedRoute, useValue: fakeActivatedRoute
+        },
+        BusService, {
+          provide: CredentialsService,
+          useValue: fakeCredentialsService
+        }]
     })
       .compileComponents();
   }));
