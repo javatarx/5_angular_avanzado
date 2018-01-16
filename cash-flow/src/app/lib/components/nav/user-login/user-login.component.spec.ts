@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserLoginComponent } from './user-login.component';
+import { BusService } from '../../../../lib/bus.service';
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;
@@ -8,9 +9,12 @@ describe('UserLoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserLoginComponent ]
+      declarations: [UserLoginComponent],
+      providers: [
+        BusService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
