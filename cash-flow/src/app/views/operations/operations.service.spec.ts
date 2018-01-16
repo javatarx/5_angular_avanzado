@@ -1,7 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { OperationsService } from './operations.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { inject, TestBed } from '@angular/core/testing';
+import { OperationsService } from './operations.service';
 
 describe('OperationsService', () => {
   beforeEach(() => {
