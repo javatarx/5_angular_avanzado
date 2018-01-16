@@ -8,9 +8,9 @@ describe('CredentialsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CredentialsComponent ]
+      declarations: [CredentialsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,6 +20,22 @@ describe('CredentialsComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should obtain Page Data', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should send credentials', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should process correct credentials', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should process invalid credentials', () => {
     expect(component).toBeTruthy();
   });
 });
