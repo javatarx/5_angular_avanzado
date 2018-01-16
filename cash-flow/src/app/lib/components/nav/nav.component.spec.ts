@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavComponent } from './nav.component';
+import { TitleComponent } from './title/title.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { BusService } from '../../../lib/bus.service';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -8,9 +11,12 @@ describe('NavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      declarations: [NavComponent, TitleComponent, UserLoginComponent],
+      providers: [
+        BusService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
