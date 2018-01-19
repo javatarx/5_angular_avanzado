@@ -11,10 +11,10 @@ describe('ItemComponent', () => {
   };
   const fakeOperationsService = {
     getOperationById$(id) {
-      return from([mockItem]);
+      return from([fakeItem]);
     }
   };
-  const mockItem = { data: 'fake' }
+  const fakeItem = { data: 'fake' }
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
 
