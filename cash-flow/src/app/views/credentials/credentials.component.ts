@@ -17,7 +17,7 @@ export class CredentialsComponent implements OnInit {
     private busService: BusService,
     private credentialsService: CredentialsService,
     private router: Router
-  ) {}
+  ) { }
 
   public ngOnInit() {
     this.obtainPageDataFromRoute();
@@ -32,8 +32,8 @@ export class CredentialsComponent implements OnInit {
     this.credentialsService
       .sendCredential(credential, service)
       .subscribe(
-        this.acceptedCredentials.bind(this),
-        this.invalidCredentials.bind(this)
+      this.acceptedCredentials.bind(this),
+      this.invalidCredentials.bind(this)
       );
   }
   private acceptedCredentials(token) {
