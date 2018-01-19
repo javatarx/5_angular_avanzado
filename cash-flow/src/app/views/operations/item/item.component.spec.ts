@@ -10,11 +10,11 @@ describe('ItemComponent', () => {
     snapshot: { params: { id: 1 } }
   };
   const fakeOperationsService = {
-    getOperationById$ (id) {
-      console.log(id);
-      return from(null);
+    getOperationById$(id) {
+      return from([mockItem]);
     }
   };
+  const mockItem = { data: 'fake' }
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
 
@@ -23,7 +23,8 @@ describe('ItemComponent', () => {
       declarations: [ItemComponent],
       providers: [
         {
-          provide: ActivatedRoute, useValue: fakeActivatedRoute
+          provide: ActivatedRoute,
+          useValue: fakeActivatedRoute
         },
         {
           provide: OperationsService,

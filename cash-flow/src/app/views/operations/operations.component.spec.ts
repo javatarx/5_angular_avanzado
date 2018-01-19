@@ -10,13 +10,15 @@ import { OperationsService } from './operations.service';
 
 describe('OperationsComponent', () => {
   const fakeOperationsService = {
-    getOperationsList$ (d) {
-      return from([]);
+    getOperationsList$(d) {
+      return from([mockOperations]);
     },
-    getNumberOfOperations$ () {
-      return from(null);
+    getNumberOfOperations$() {
+      return from([mockNumber]);
     }
   };
+  const mockOperations = [{ data: 'fake' }];
+  const mockNumber = { number: 0 }
   let component: OperationsComponent;
   let fixture: ComponentFixture<OperationsComponent>;
 

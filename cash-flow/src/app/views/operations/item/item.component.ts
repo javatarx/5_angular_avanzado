@@ -18,7 +18,7 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private operationsService: OperationsService
-  ) {}
+  ) { }
 
   public ngOnInit() {
     this._id = this.getIdFromRoute();
@@ -57,7 +57,7 @@ export class ItemComponent implements OnInit {
   private showServerError(err: HttpErrorResponse) {
     this.message = `Server returned code ${err.status}, text: ${
       err.statusText
-    }`;
+      }`;
     this.fullError = err;
   }
 
