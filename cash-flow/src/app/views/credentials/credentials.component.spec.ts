@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { from } from 'rxjs/observable/from';
+import { _throw } from 'rxjs/observable/throw';
 import { BusService } from '../../lib/bus.service';
 import { CredentialsComponent } from './credentials.component';
 import { CredentialsRoutingModule } from './credentials.routing';
 import { CredentialsService } from './credentials.service';
-import { By } from '@angular/platform-browser';
-import { from } from 'rxjs/observable/from';
-import { _throw } from 'rxjs/observable/throw';
 
 describe('CredentialsComponent', () => {
   const fakeRegistrationData = {
@@ -41,7 +41,7 @@ describe('CredentialsComponent', () => {
     emitUserToken(token) {
       console.log('emitUserToken', token);
     }
-  }
+  };
   let component: CredentialsComponent;
   let fixture: ComponentFixture<CredentialsComponent>;
   let debugElement;
