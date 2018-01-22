@@ -27,4 +27,16 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show an empty list for zero operations ', () => {
+    expect(false).toBeTruthy();
+  });
+
+  it('should show a table with one row for each operation ', () => {
+    expect(false).toBeTruthy();
+  });
+
+  it('should emit an event hen user click on delete ', () => {
+    expect(false).toBeTruthy();
+  });
 });

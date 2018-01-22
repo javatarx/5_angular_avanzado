@@ -18,7 +18,7 @@ describe('OperationsComponent', () => {
     }
   };
   const fakeOperations = [{ data: 'fake' }];
-  const fakeNumber = { number: 0 }
+  const fakeNumber = { number: 0 };
   let component: OperationsComponent;
   let fixture: ComponentFixture<OperationsComponent>;
 
@@ -46,5 +46,11 @@ describe('OperationsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should save an operation', () => {
+    expect(false).toBeTruthy();
+  });
+  it('should delete an operation', () => {
+    expect(false).toBeTruthy();
   });
 });
