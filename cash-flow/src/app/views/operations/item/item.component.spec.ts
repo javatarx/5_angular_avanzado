@@ -14,7 +14,7 @@ describe('ItemComponent', () => {
       return from([fakeItem]);
     }
   };
-  const fakeItem = { data: 'fake' }
+  const fakeItem = { data: 'fake' };
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
 
@@ -43,5 +43,8 @@ describe('ItemComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should call getItem with the correct id', () => {
+    expect(false).toBeTruthy();
   });
 });

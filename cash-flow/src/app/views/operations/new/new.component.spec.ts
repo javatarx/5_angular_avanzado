@@ -23,4 +23,8 @@ describe('NewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call save with the form operation data', () => {
+    expect(false).toBeTruthy();
+  });
 });
