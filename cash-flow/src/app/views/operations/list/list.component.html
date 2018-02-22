@@ -16,7 +16,7 @@
       </td>
       <td>{{ operation.description }}</td>
       <td>{{ operation.kind }}</td>
-      <td>{{ operation.amount | number:'7.2-2' }}</td>
+      <td style="float:right">{{ operation.amount }}</td>
       <td>
         <button (click)="deleteOperation(operation)">Delete</button>
       </td>
