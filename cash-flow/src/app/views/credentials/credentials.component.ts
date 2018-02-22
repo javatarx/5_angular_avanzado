@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { BusService } from '../../lib/bus.service';
 import { Component, OnInit } from '@angular/core';
 import { CredentialsService } from './credentials.service';
+import { StoreService } from '../../lib/store.service';
 
 @Component({
   selector: 'cf-credentials',
@@ -14,10 +14,10 @@ export class CredentialsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private busService: BusService,
     private credentialsService: CredentialsService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private store: StoreService
+  ) { }
 
   public ngOnInit() {
     this.obtainPageDataFromRoute();
@@ -31,17 +31,18 @@ export class CredentialsComponent implements OnInit {
     const service = this.pageData.title;
     this.credentialsService
       .sendCredential(credential, service)
-      .subscribe(
-        this.acceptedCredentials.bind(this),
-        this.invalidCredentials.bind(this)
-      );
+      .subscribe(this.acceptedCredentials, this.invalidCredentials);
   }
-  private acceptedCredentials(token) {
-    this.busService.emitUserToken(token);
-    this.router.navigateByUrl('/');
+  private acceptedCredentials = responseData => {
+    if (responseData && responseData.token) {
+      this.store.setUserToken(responseData.token);
+      this.router.navigateByUrl('/');
+    } else {
+      this.invalidCredentials();
+    }
   }
-  private invalidCredentials() {
-    this.busService.emitUserToken(null);
+  private invalidCredentials = () => {
+    this.store.setUserToken(null);
     this.errorMessage = 'Invalid Credentials';
   }
 }

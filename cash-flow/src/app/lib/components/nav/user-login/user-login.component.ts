@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { BusService } from '../../../bus.service';
+import { StoreService } from '../../../store.service';
 
 @Component({
   selector: 'cf-user-login',
@@ -10,10 +10,10 @@ import { BusService } from '../../../bus.service';
 export class UserLoginComponent implements OnInit {
   public userIsAnonymous$: Observable<boolean>;
 
-  constructor(private busService: BusService) { }
+  constructor(private store: StoreService) { }
 
   ngOnInit() {
-    this.userIsAnonymous$ = this.busService.getUserIsAnonymous$();
+    this.userIsAnonymous$ = this.store.getUserIsAnonymous$();
   }
 
 }

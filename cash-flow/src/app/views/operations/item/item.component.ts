@@ -18,31 +18,36 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private operationsService: OperationsService
-  ) {}
+  ) { }
 
-  public ngOnInit() {
+  ngOnInit() {
     this._id = this.getIdFromRoute();
     this.getDataById();
   }
+
   private getIdFromRoute() {
     return this.route.snapshot.params['id'];
   }
+
   private getDataById() {
     this.operationsService
       .getOperationById$(this._id)
-      .subscribe(data => this.showData(data), err => this.catchError(err));
+      .subscribe(this.showData, this.catchError);
   }
-  private showData(data) {
-    this.operation = data;
+
+  private showData = operation => {
+    this.operation = operation;
     this.message = `Found data for _id: ${this._id}`;
   }
-  private catchError(err) {
+
+  private catchError = err => {
     if (err instanceof HttpErrorResponse) {
       this.catchHttpError(err);
     } else {
       console.error(err.message);
     }
   }
+
   private catchHttpError(err: HttpErrorResponse) {
     if (err.status === 404) {
       this.showNotFoundError();
@@ -50,15 +55,16 @@ export class ItemComponent implements OnInit {
       this.showServerError(err);
     }
   }
+
   private showNotFoundError() {
     this.message = `NOT FOUND data for _id: ${this._id} !!!`;
     this.fullError = null;
   }
+
   private showServerError(err: HttpErrorResponse) {
     this.message = `Server returned code ${err.status}, text: ${
       err.statusText
-    }`;
+      }`;
     this.fullError = err;
   }
-
 }

@@ -1,29 +1,27 @@
-import { BusService } from './bus.service';
+import { Injectable } from "@angular/core";
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest
-} from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+} from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
+import { StoreService } from "./store.service";
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-  private token = 'InitialAuthorizationToken';
+  private token: string = "";
 
-  constructor(private busService: BusService) {
+  constructor(private store: StoreService) {
     this.subscribeToTokenChanges();
   }
 
   private subscribeToTokenChanges() {
-    this.busService.getUserToken$().subscribe(this.setTokenIfAny.bind(this));
+    this.store.getUserToken$().subscribe(this.setToken);
   }
-  private setTokenIfAny(data) {
-    if (data && data.token) {
-      this.token = data.token;
-    }
-  }
+
+  private setToken = token => (this.token = token);
+
   public intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -33,9 +31,9 @@ export class TokenInterceptorService implements HttpInterceptor {
     return handledRequest;
   }
   private setAuthHeader(req: HttpRequest<any>): HttpRequest<any> {
-    const authorization = `Bearer ${this.token}`;
-    const headers = req.headers.set('Authorization', authorization);
-    const authorizationReq = req.clone({ headers });
-    return authorizationReq;
+    const authToken = `Bearer ${this.token}`;
+    const headers = req.headers.set("Authorization", authToken);
+    const authorizedReq = req.clone({ headers });
+    return authorizedReq;
   }
 }
