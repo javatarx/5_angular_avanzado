@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { Subject } from "rxjs/Subject";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class StoreService {
   private state = {
-    userToken: "",
+    userToken: '',
     userIsAnonymous: true,
-    userMessage: ""
+    userMessage: ''
   };
 
   private userToken$ = new Subject<string>();
@@ -30,7 +30,7 @@ export class StoreService {
       this.state.userToken = userToken;
       this.state.userIsAnonymous = false;
     } else {
-      this.state.userToken = "";
+      this.state.userToken = '';
       this.state.userIsAnonymous = true;
     }
     this.userToken$.next(this.state.userToken);

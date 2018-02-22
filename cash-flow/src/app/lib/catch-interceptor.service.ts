@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpEvent,
@@ -6,11 +6,11 @@ import {
   HttpRequest,
   HttpResponse,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { tap } from "rxjs/operators";
-import { Router } from "@angular/router";
-import { StoreService } from "./store.service";
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { StoreService } from './store.service';
 
 @Injectable()
 export class CatchInterceptorService implements HttpInterceptor {
@@ -27,7 +27,7 @@ export class CatchInterceptorService implements HttpInterceptor {
       this.catchError
     );
     this.started = Date.now();
-    this.store.setUserMessage("");
+    this.store.setUserMessage('');
     const handledRequest = next.handle(req);
     return handledRequest.pipe(interceptionOperator);
   }
@@ -35,9 +35,9 @@ export class CatchInterceptorService implements HttpInterceptor {
   private interceptResponse = (event: HttpEvent<any>) => {
     if (event instanceof HttpResponse) {
       const elapsed_ms = Date.now() - this.started;
-      console.debug(`Request for ${event.url} took ${elapsed_ms} ms.`);
+      console.log(`Request for ${event.url} took ${elapsed_ms} ms.`);
     }
-  };
+  }
 
   private catchError = err => {
     if (err instanceof HttpErrorResponse) {
@@ -46,7 +46,7 @@ export class CatchInterceptorService implements HttpInterceptor {
       console.error(err.message);
       this.store.setUserMessage(err.message);
     }
-  };
+  }
 
   private catchHttpError(err: HttpErrorResponse) {
     if (err.status === 401) {
@@ -58,11 +58,11 @@ export class CatchInterceptorService implements HttpInterceptor {
   }
 
   private catchUnauthorized() {
-    console.log("Not authorized");
-    this.store.setUserMessage("Not authorized");
+    console.log('Not authorized');
+    this.store.setUserMessage('Not authorized');
     this.navigateToLogin();
   }
   private navigateToLogin() {
-    this.router.navigateByUrl("/credentials/login");
+    this.router.navigateByUrl('/credentials/login');
   }
 }

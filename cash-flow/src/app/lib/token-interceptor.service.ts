@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest
-} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { StoreService } from "./store.service";
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { StoreService } from './store.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-  private token: string = "";
+  private token = '';
 
   constructor(private store: StoreService) {
     this.subscribeToTokenChanges();
@@ -32,7 +32,7 @@ export class TokenInterceptorService implements HttpInterceptor {
   }
   private setAuthHeader(req: HttpRequest<any>): HttpRequest<any> {
     const authToken = `Bearer ${this.token}`;
-    const headers = req.headers.set("Authorization", authToken);
+    const headers = req.headers.set('Authorization', authToken);
     const authorizedReq = req.clone({ headers });
     return authorizedReq;
   }
