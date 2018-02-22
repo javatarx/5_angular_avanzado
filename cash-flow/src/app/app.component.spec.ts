@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './lib/components/components.module';
-import { BusService } from './lib/bus.service';
+import { StoreService } from './lib/store.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        BusService
+        StoreService
       ]
     }).compileComponents();
   }));

@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { from } from 'rxjs/observable/from';
 import { _throw } from 'rxjs/observable/throw';
-import { BusService } from '../../lib/bus.service';
 import { CredentialsComponent } from './credentials.component';
 import { CredentialsRoutingModule } from './credentials.routing';
 import { CredentialsService } from './credentials.service';
+import { StoreService } from '../../lib/store.service';
 
 describe('CredentialsComponent', () => {
   const fakeRegistrationData = {
@@ -37,7 +37,7 @@ describe('CredentialsComponent', () => {
       }
     }
   };
-  const fakeBusService = {
+  const fakeStoreService = {
     emitUserToken(token) {
       console.log('emitUserToken', token);
     }
@@ -47,24 +47,28 @@ describe('CredentialsComponent', () => {
   let debugElement;
   let spy: any;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [CredentialsRoutingModule, FormsModule, RouterTestingModule],
-      declarations: [CredentialsComponent],
-      providers: [
-        {
-          provide: ActivatedRoute, useValue: fakeActivatedRoute
-        },
-        {
-          provide: BusService, useValue: fakeBusService
-        },
-        {
-          provide: CredentialsService,
-          useValue: fakeCredentialsService
-        }]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [CredentialsRoutingModule, FormsModule, RouterTestingModule],
+        declarations: [CredentialsComponent],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useValue: fakeActivatedRoute
+          },
+          {
+            provide: StoreService,
+            useValue: fakeStoreService
+          },
+          {
+            provide: CredentialsService,
+            useValue: fakeCredentialsService
+          }
+        ]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CredentialsComponent);

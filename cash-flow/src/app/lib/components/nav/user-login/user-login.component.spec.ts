@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BusService } from '../../../../lib/bus.service';
 import { UserLoginComponent } from './user-login.component';
+import { StoreService } from '../../../store.service';
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;
   let fixture: ComponentFixture<UserLoginComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [UserLoginComponent],
-      providers: [
-        BusService
-      ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [UserLoginComponent],
+        providers: [StoreService]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserLoginComponent);
