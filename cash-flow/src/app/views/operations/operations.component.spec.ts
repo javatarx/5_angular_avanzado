@@ -5,6 +5,7 @@ import { StoreService } from '../../lib/store.service';
 import { ItemComponent } from './item/item.component';
 import { ListComponent } from './list/list.component';
 import { NewComponent } from './new/new.component';
+import { Operation } from './operation.class';
 import { OperationsComponent } from './operations.component';
 import { OperationsRoutingModule } from './operations.routing';
 import { OperationsService } from './operations.service';
@@ -16,10 +17,16 @@ describe('OperationsComponent', () => {
     },
     getNumberOfOperations$() {
       return from([fakeNumber]);
+    },
+    saveOperation$(operation: Operation) {
+      operation._id = Date.now().toString();
+      fakeOperations.push(operation);
+      fakeNumber.number = fakeOperations.length;
+      return from([operation]);
     }
   };
-  const fakeOperations = [{ data: 'fake' }];
-  const fakeNumber = { number: 0 };
+  const fakeOperations = [new Operation()];
+  const fakeNumber = { number: fakeOperations.length };
   let component: OperationsComponent;
   let fixture: ComponentFixture<OperationsComponent>;
 
@@ -53,6 +60,12 @@ describe('OperationsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should save an operation', () => {});
+  fit('should save an operation', () => {
+    component.saveOperation(new Operation());
+    fixture.detectChanges();
+    fixture.whenStable().then(result => {
+      expect(component.operations.length).toBe(2);
+    });
+  });
   it('should delete an operation', () => {});
 });
