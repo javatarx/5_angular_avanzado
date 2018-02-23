@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
 import { OperationsService } from '../operations.service';
 import { ItemComponent } from './item.component';
+import { Operation } from '../operation.class';
 
 describe('ItemComponent', () => {
   const fakeActivatedRoute = {
@@ -14,26 +15,29 @@ describe('ItemComponent', () => {
       return from([fakeItem]);
     }
   };
-  const fakeItem = { data: 'fake' };
+  const fakeItem = new Operation();
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
+  let operationsService: OperationsService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ItemComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: fakeActivatedRoute
-        },
-        {
-          provide: OperationsService,
-          useValue: fakeOperationsService
-        }
-      ]
+  beforeEach(
+    async(() => {
+      const bed = TestBed.configureTestingModule({
+        declarations: [ItemComponent],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useValue: fakeActivatedRoute
+          },
+          {
+            provide: OperationsService,
+            useValue: fakeOperationsService
+          }
+        ]
+      });
+      bed.compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ItemComponent);
@@ -45,6 +49,6 @@ describe('ItemComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should call getItem with the correct id', () => {
-    expect(false).toBeTruthy();
+    expect(component.operation).toBe(fakeItem);
   });
 });

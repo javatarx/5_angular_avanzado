@@ -1,17 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserMessageComponent } from './user-message.component';
+import { StoreService } from '../../../store.service';
 
 describe('UserMessageComponent', () => {
   let component: UserMessageComponent;
   let fixture: ComponentFixture<UserMessageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UserMessageComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [UserMessageComponent],
+        providers: [StoreService]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserMessageComponent);

@@ -5,18 +5,34 @@ import { NewComponent } from '../new/new.component';
 import { OperationsComponent } from '../operations.component';
 import { OperationsRoutingModule } from '../operations.routing';
 import { ListComponent } from './list.component';
+import { By } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [OperationsRoutingModule, FormsModule],
-      declarations: [ListComponent, OperationsComponent, ItemComponent, NewComponent]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          OperationsRoutingModule,
+          FormsModule,
+          RouterModule.forRoot([
+            { path: '', redirectTo: '', pathMatch: 'full' }
+          ])
+        ],
+        declarations: [
+          ListComponent,
+          OperationsComponent,
+          ItemComponent,
+          NewComponent
+        ],
+        providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
@@ -29,14 +45,33 @@ describe('ListComponent', () => {
   });
 
   it('should show an empty list for zero operations ', () => {
-    expect(false).toBeTruthy();
+    component.numberOfOperations = 0;
+    fixture.detectChanges();
+    const tableEl = fixture.debugElement.query(By.css('table'));
+    expect(tableEl).toBe(null);
+    const panelEl = fixture.debugElement.query(By.css('h3'));
+    expect(panelEl).toBeTruthy();
   });
 
   it('should show a table with one row for each operation ', () => {
-    expect(false).toBeTruthy();
+    component.numberOfOperations = 1;
+    fixture.detectChanges();
+    const tableEl = fixture.debugElement.query(By.css('table'));
+    expect(tableEl).toBeTruthy();
+    const panelEl = fixture.debugElement.query(By.css('h3'));
+    expect(panelEl).toBe(null);
   });
 
-  it('should emit an event hen user click on delete ', () => {
-    expect(false).toBeTruthy();
+  it('should emit an event when user click on delete ', () => {
+    component.operations = [{ _id: '', description: '', amount: 1, kind: '' }];
+    component.numberOfOperations = 1;
+    fixture.detectChanges();
+    let theOperation;
+    component.delete.subscribe(value => (theOperation = value));
+    const deleteEl = fixture.debugElement.query(
+      By.css('tbody > tr:first-child > td:last-child > button')
+    );
+    deleteEl.triggerEventHandler('click', null);
+    expect(theOperation.amount).toBe(component.operations[0].amount);
   });
 });

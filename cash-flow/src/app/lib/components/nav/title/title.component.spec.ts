@@ -1,20 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TitleComponent } from './title.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('TitleComponent', () => {
   let component: TitleComponent;
   let fixture: ComponentFixture<TitleComponent>;
+  let el: DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TitleComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [TitleComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TitleComponent);
     component = fixture.componentInstance;
+    el = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -22,7 +27,9 @@ describe('TitleComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show a title', () => {
-    expect(false).toBeTruthy();
+  it('should show the title', () => {
+    const aTag = el.query(By.css('a'));
+    const aContent = aTag.nativeElement.textContent;
+    expect(aContent).toBe(component.title);
   });
 });
