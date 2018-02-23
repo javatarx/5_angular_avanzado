@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { from } from 'rxjs/observable/from';
 import { _throw } from 'rxjs/observable/throw';
+import { StoreService } from '../../lib/store.service';
 import { CredentialsComponent } from './credentials.component';
 import { CredentialsRoutingModule } from './credentials.routing';
 import { CredentialsService } from './credentials.service';
-import { StoreService } from '../../lib/store.service';
 
 describe('CredentialsComponent', () => {
   const fakeRegistrationData = {
@@ -115,7 +115,7 @@ describe('CredentialsComponent', () => {
     const submitNative = submitEl.nativeElement;
     submitNative.click();
     fixture.detectChanges();
-    //expect(component.errorMessage).toBe('Invalid Credentials');
+    // expect(component.errorMessage).toBe('Invalid Credentials');
     expect(component.errorMessage).toBe('');
   });
 });

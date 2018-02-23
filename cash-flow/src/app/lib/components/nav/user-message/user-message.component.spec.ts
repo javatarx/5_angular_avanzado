@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserMessageComponent } from './user-message.component';
 import { StoreService } from '../../../store.service';
+import { UserMessageComponent } from './user-message.component';
 
 describe('UserMessageComponent', () => {
   let component: UserMessageComponent;

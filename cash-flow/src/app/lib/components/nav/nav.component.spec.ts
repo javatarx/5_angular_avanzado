@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreService } from '../../store.service';
 import { NavComponent } from './nav.component';
 import { TitleComponent } from './title/title.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { StoreService } from '../../store.service';
 import { UserMessageComponent } from './user-message/user-message.component';
 
 describe('NavComponent', () => {

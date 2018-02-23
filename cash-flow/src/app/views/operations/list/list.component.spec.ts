@@ -1,13 +1,13 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { ItemComponent } from '../item/item.component';
 import { NewComponent } from '../new/new.component';
 import { OperationsComponent } from '../operations.component';
 import { OperationsRoutingModule } from '../operations.routing';
 import { ListComponent } from './list.component';
-import { By } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
 
 describe('ListComponent', () => {
   let component: ListComponent;

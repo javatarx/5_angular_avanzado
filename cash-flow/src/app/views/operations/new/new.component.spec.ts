@@ -1,9 +1,9 @@
+import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { NewComponent } from './new.component';
-import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Operation } from '../operation.class';
+import { NewComponent } from './new.component';
 
 describe('NewComponent', () => {
   let component: NewComponent;

@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs/observable/from';
+import { StoreService } from '../../lib/store.service';
 import { ItemComponent } from './item/item.component';
 import { ListComponent } from './list/list.component';
 import { NewComponent } from './new/new.component';
 import { OperationsComponent } from './operations.component';
 import { OperationsRoutingModule } from './operations.routing';
 import { OperationsService } from './operations.service';
-import { StoreService } from '../../lib/store.service';
 
 describe('OperationsComponent', () => {
   const fakeOperationsService = {
@@ -53,10 +53,6 @@ describe('OperationsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should save an operation', () => {
-    
-  });
-  it('should delete an operation', () => {
-
-  });
+  it('should save an operation', () => {});
+  it('should delete an operation', () => {});
 });

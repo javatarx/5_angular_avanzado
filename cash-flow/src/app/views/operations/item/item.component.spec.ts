@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
+import { Operation } from '../operation.class';
 import { OperationsService } from '../operations.service';
 import { ItemComponent } from './item.component';
-import { Operation } from '../operation.class';
 
 describe('ItemComponent', () => {
   const fakeActivatedRoute = {
@@ -18,7 +18,6 @@ describe('ItemComponent', () => {
   const fakeItem = new Operation();
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
-  let operationsService: OperationsService;
 
   beforeEach(
     async(() => {
