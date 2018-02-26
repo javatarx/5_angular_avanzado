@@ -1,7 +1,10 @@
-import { TestBed, inject } from "@angular/core/testing";
+import { TestBed, inject, async } from "@angular/core/testing";
 
 import { CredentialsService } from "./credentials.service";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
+import {
+	HttpClientTestingModule,
+	HttpTestingController
+} from "@angular/common/http/testing";
 
 describe("CredentialsService", () => {
 	beforeEach(() => {
@@ -10,7 +13,14 @@ describe("CredentialsService", () => {
 			providers: [CredentialsService]
 		});
 	});
-
+	afterEach(
+		inject(
+			[HttpTestingController],
+			(backend: HttpTestingController) => {
+				backend.verify();
+			}
+		)
+	);
 	it(
 		"should be created",
 		inject(
@@ -23,21 +33,42 @@ describe("CredentialsService", () => {
 
 	it(
 		"should use a correct url",
-		inject(
-			[CredentialsService],
-			(service: CredentialsService) => {
-				expect(service).toBeTruthy();
-			}
+		async(
+			inject(
+				[CredentialsService, HttpTestingController],
+				(
+					service: CredentialsService,
+					backend: HttpTestingController
+				) => {
+					service.sendCredential({}, "Login").subscribe();
+					backend.expectOne(request => {
+						return request.url.endsWith("login");
+					}, "sendCredential was well called");
+				}
+			)
 		)
 	);
 
 	it(
-		"should send credentials",
-		inject(
-			[CredentialsService],
-			(service: CredentialsService) => {
-				expect(service).toBeTruthy();
-			}
+		"should send the credential",
+		async(
+			inject(
+				[CredentialsService, HttpTestingController],
+				(
+					service: CredentialsService,
+					backend: HttpTestingController
+				) => {
+					service
+						.sendCredential(
+							{ email: "test@verified.com" },
+							"Login"
+						)
+						.subscribe();
+					backend.expectOne(request => {
+						return request.body.email === "test@verified.com";
+					}, "sendCredential was well called");
+				}
+			)
 		)
 	);
 });
