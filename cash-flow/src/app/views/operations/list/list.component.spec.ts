@@ -1,12 +1,14 @@
-import { APP_BASE_HREF } from "@angular/common";
+import { APP_BASE_HREF, Location } from "@angular/common";
 import {
 	async,
 	ComponentFixture,
-	TestBed
+	fakeAsync,
+	TestBed,
+	tick
 } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { ItemComponent } from "../item/item.component";
 import { NewComponent } from "../new/new.component";
 import { OperationsComponent } from "../operations.component";
@@ -16,6 +18,8 @@ import { ListComponent } from "./list.component";
 describe("ListComponent", () => {
 	let fixture: ComponentFixture<ListComponent>;
 	let component: ListComponent;
+	let location: Location;
+	let router: Router;
 
 	beforeEach(
 		async(() => {
@@ -24,7 +28,12 @@ describe("ListComponent", () => {
 					OperationsRoutingModule,
 					FormsModule,
 					RouterModule.forRoot([
-						{ path: "", redirectTo: "", pathMatch: "full" }
+						{ path: "", redirectTo: "", pathMatch: "full" },
+						{
+							path: "operations/:id",
+							component: OperationsComponent,
+							pathMatch: "full"
+						}
 					])
 				],
 				declarations: [
@@ -42,11 +51,22 @@ describe("ListComponent", () => {
 		fixture = TestBed.createComponent(ListComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
+		router = TestBed.get(Router);
+		location = TestBed.get(Location);
 	});
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+
+	it(
+		"navigate to [operation id] redirects you to /operations/:id",
+		fakeAsync(() => {
+			router.navigate(["operations", 1]);
+			tick();
+			expect(location.path()).toBe("/operations/1");
+		})
+	);
 
 	it("should show an empty list for zero operations ", () => {
 		component.numberOfOperations = 0;

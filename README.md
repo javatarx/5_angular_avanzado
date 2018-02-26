@@ -67,6 +67,15 @@ spyOn(component, 'methodName').and.returnValue(1);
 providers:[
   { provide: APP_BASE_HREF, useValue: "/" }
 ]
+RouterModule.forRoot([]);
+```
+
+```typescript
+fakeAsync(() => {
+	router.navigate(['section', 1]);
+	tick();
+	expect(location.path()).toBe('/section/1');
+});
 ```
 
 ### @Input @Output
