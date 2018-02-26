@@ -1,28 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { StoreService } from "../../../store.service";
+import { UserMessageComponent } from "./user-message.component";
 
-import { StoreService } from '../../../store.service';
-import { UserMessageComponent } from './user-message.component';
+describe("UserMessageComponent", () => {
+	let component: UserMessageComponent;
+	let fixture: ComponentFixture<UserMessageComponent>;
 
-describe('UserMessageComponent', () => {
-  let component: UserMessageComponent;
-  let fixture: ComponentFixture<UserMessageComponent>;
+	beforeEach(
+		async(() => {
+			TestBed.configureTestingModule({
+				declarations: [UserMessageComponent],
+				providers: [StoreService]
+			}).compileComponents();
+		})
+	);
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [UserMessageComponent],
-        providers: [StoreService]
-      }).compileComponents();
-    })
-  );
+	beforeEach(() => {
+		fixture = TestBed.createComponent(UserMessageComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UserMessageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it("should create", () => {
+		expect(component).toBeTruthy();
+	});
 });
