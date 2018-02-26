@@ -1,39 +1,43 @@
-import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { Operation } from '../operation.class';
-import { NewComponent } from './new.component';
+import { DebugElement } from "@angular/core";
+import {
+	async,
+	ComponentFixture,
+	TestBed
+} from "@angular/core/testing";
+import { FormsModule } from "@angular/forms";
+import { By } from "@angular/platform-browser";
+import { Operation } from "../operation.class";
+import { NewComponent } from "./new.component";
 
-describe('NewComponent', () => {
-  let component: NewComponent;
-  let fixture: ComponentFixture<NewComponent>;
-  let submitEl: DebugElement;
+describe("NewComponent", () => {
+	let component: NewComponent;
+	let fixture: ComponentFixture<NewComponent>;
+	let submitEl: DebugElement;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        imports: [FormsModule],
-        declarations: [NewComponent]
-      }).compileComponents();
-    })
-  );
+	beforeEach(
+		async(() => {
+			TestBed.configureTestingModule({
+				imports: [FormsModule],
+				declarations: [NewComponent]
+			}).compileComponents();
+		})
+	);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(NewComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it("should create", () => {
+		expect(component).toBeTruthy();
+	});
 
-  it('should call save with the form operation data', () => {
-    let theFormValue;
-    component.save.subscribe(value => (theFormValue = value));
-    submitEl = fixture.debugElement.query(By.css('button'));
-    submitEl.triggerEventHandler('click', null);
-    expect(theFormValue.amount).toBe(0);
-  });
+	it("should call save with the form operation data", () => {
+		let theFormValue;
+		component.save.subscribe(value => (theFormValue = value));
+		submitEl = fixture.debugElement.query(By.css("button"));
+		submitEl.triggerEventHandler("click", null);
+		expect(theFormValue.amount).toBe(0);
+	});
 });
