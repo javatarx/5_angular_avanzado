@@ -1,15 +1,15 @@
+import { DebugElement } from "@angular/core";
 import {
 	async,
 	ComponentFixture,
 	TestBed
 } from "@angular/core/testing";
-import { TitleComponent } from "./title.component";
-import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
+import { TitleComponent } from "./title.component";
 
 describe("TitleComponent", () => {
-	let component: TitleComponent;
 	let fixture: ComponentFixture<TitleComponent>;
+	let component: TitleComponent;
 	let componentElement: DebugElement;
 
 	beforeEach(
@@ -33,6 +33,7 @@ describe("TitleComponent", () => {
 
 	it("should show the title", () => {
 		const aTag = componentElement.query(By.css("a"));
+		const aNative = aTag.nativeElement;
 		const aContent = aTag.nativeElement.textContent;
 		expect(aContent).toBe(component.title);
 	});

@@ -14,8 +14,8 @@ import { OperationsRoutingModule } from "../operations.routing";
 import { ListComponent } from "./list.component";
 
 describe("ListComponent", () => {
-	let component: ListComponent;
 	let fixture: ComponentFixture<ListComponent>;
+	let component: ListComponent;
 
 	beforeEach(
 		async(() => {

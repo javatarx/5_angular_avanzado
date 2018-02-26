@@ -15,10 +15,10 @@ import { CredentialsRoutingModule } from "./credentials.routing";
 import { CredentialsService } from "./credentials.service";
 
 describe("CredentialsComponent", () => {
-	let component: CredentialsComponent;
 	let fixture: ComponentFixture<CredentialsComponent>;
+	let component: CredentialsComponent;
 	let debugElement;
-	let spy: any;
+	let spy: jasmine.Spy;
 
 	beforeEach(
 		async(() => {

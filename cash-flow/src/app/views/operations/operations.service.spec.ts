@@ -2,11 +2,13 @@ import {
 	HttpClientTestingModule,
 	HttpTestingController
 } from "@angular/common/http/testing";
-import { inject, TestBed, async } from "@angular/core/testing";
-import { OperationsService } from "./operations.service";
+import { async, inject, TestBed } from "@angular/core/testing";
 import { Operation } from "./operation.class";
+import { OperationsService } from "./operations.service";
 
 describe("OperationsService", () => {
+	const url =
+		"https://api-base.herokuapp.com/api/priv/operations/";
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			imports: [HttpClientTestingModule],
@@ -40,12 +42,10 @@ describe("OperationsService", () => {
 					backend: HttpTestingController
 				) => {
 					service.getNumberOfOperations$().subscribe();
-					backend.expectOne(request => {
-						return (
-							request.url ===
-							"https://api-base.herokuapp.com/api/priv/operations/count"
-						);
-					}, "getNumberOfOperations was called");
+					backend.expectOne(
+						request => request.url === url + "count",
+						"getNumberOfOperations was called"
+					);
 				}
 			)
 		)
@@ -62,10 +62,9 @@ describe("OperationsService", () => {
 					service.saveOperation$(new Operation()).subscribe();
 					backend.expectOne(request => {
 						return (
-							request.url ===
-								"https://api-base.herokuapp.com/api/priv/operations/" &&
+							request.url === url &&
 							request.method === "POST" &&
-							request.body.amount == 0
+							request.body.amount === 0
 						);
 					}, "getNumberOfOperations was called");
 				}

@@ -10,8 +10,8 @@ import { Operation } from "../operation.class";
 import { NewComponent } from "./new.component";
 
 describe("NewComponent", () => {
-	let component: NewComponent;
 	let fixture: ComponentFixture<NewComponent>;
+	let component: NewComponent;
 	let submitEl: DebugElement;
 
 	beforeEach(
