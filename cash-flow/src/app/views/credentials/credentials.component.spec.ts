@@ -3,7 +3,7 @@ import {
 	ComponentFixture,
 	TestBed
 } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { RouterTestingModule } from "@angular/router/testing";
@@ -25,7 +25,7 @@ describe("CredentialsComponent", () => {
 			TestBed.configureTestingModule({
 				imports: [
 					CredentialsRoutingModule,
-					FormsModule,
+					ReactiveFormsModule,
 					RouterTestingModule
 				],
 				declarations: [CredentialsComponent],
@@ -76,7 +76,14 @@ describe("CredentialsComponent", () => {
 	});
 
 	it("should send credentials", () => {
-		spy = spyOn(component, "sendCredential");
+		spy = spyOn(component, "sendCredential").and.callThrough();
+		component.credentialsForm.controls["email"].setValue(
+			fake.loginData.credential.email
+		);
+		component.credentialsForm.controls["password"].setValue(
+			fake.loginData.credential.password
+		);
+		fixture.detectChanges();
 		const submitEl = fixture.debugElement.query(
 			By.css("button")
 		);
@@ -87,6 +94,7 @@ describe("CredentialsComponent", () => {
 	});
 
 	it("should process correct credentials", () => {
+		fixture.detectChanges();
 		const submitEl = fixture.debugElement.query(
 			By.css("button")
 		);
@@ -97,7 +105,13 @@ describe("CredentialsComponent", () => {
 	});
 
 	it("should process invalid credentials", () => {
-		component.pageData.credential.email = "hacker@evil.com";
+		component.credentialsForm.controls["email"].setValue(
+			"hacker@evil.com"
+		);
+		component.credentialsForm.controls["password"].setValue(
+			"1234"
+		);
+		fixture.detectChanges();
 		const submitEl = fixture.debugElement.query(
 			By.css("button")
 		);
@@ -140,7 +154,6 @@ const fake = {
 		}
 	},
 	storeService: {
-		setUserToken(token) {
-		}
+		setUserToken(token) {}
 	}
 };
