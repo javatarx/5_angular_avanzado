@@ -133,17 +133,14 @@ const fake = {
 	credentialsService: {
 		sendCredential(credential, service) {
 			if (credential.email !== "hacker@evil.com") {
-				console.log("from([{ token: fake }]");
 				return from([{ token: "fake" }]);
 			} else {
-				console.log("_throw(invalid)");
 				return _throw("invalid");
 			}
 		}
 	},
 	storeService: {
 		setUserToken(token) {
-			console.log("setUserToken", token);
 		}
 	}
 };
