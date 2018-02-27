@@ -33,7 +33,7 @@ describe("NewComponent", () => {
 		expect(component).toBeTruthy();
 	});
 
-	fit("should call save with the form operation data", () => {
+	it("should call save with the form operation data", () => {
 		let theFormValue;
 		component.save.subscribe(value => (theFormValue = value));
 		submitEl = fixture.debugElement.query(By.css("button"));
