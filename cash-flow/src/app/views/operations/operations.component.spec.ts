@@ -3,7 +3,7 @@ import {
 	ComponentFixture,
 	TestBed
 } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { from } from "rxjs/observable/from";
 import { StoreService } from "../../lib/store.service";
 import { ItemComponent } from "./item/item.component";
@@ -21,7 +21,7 @@ describe("OperationsComponent", () => {
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
-				imports: [OperationsRoutingModule, FormsModule],
+				imports: [OperationsRoutingModule, ReactiveFormsModule],
 				declarations: [
 					ListComponent,
 					OperationsComponent,
