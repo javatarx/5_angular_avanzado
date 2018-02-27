@@ -4,7 +4,7 @@ import {
 	ComponentFixture,
 	TestBed
 } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import { Operation } from "../operation.class";
 import { NewComponent } from "./new.component";
@@ -17,7 +17,7 @@ describe("NewComponent", () => {
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
-				imports: [FormsModule],
+				imports: [ReactiveFormsModule],
 				declarations: [NewComponent]
 			}).compileComponents();
 		})
@@ -33,7 +33,7 @@ describe("NewComponent", () => {
 		expect(component).toBeTruthy();
 	});
 
-	it("should call save with the form operation data", () => {
+	fit("should call save with the form operation data", () => {
 		let theFormValue;
 		component.save.subscribe(value => (theFormValue = value));
 		submitEl = fixture.debugElement.query(By.css("button"));
