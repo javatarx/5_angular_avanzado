@@ -1,25 +1,52 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Operation } from '../operation.class';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnInit,
+	Output
+} from "@angular/core";
+import {
+	FormBuilder,
+	FormGroup,
+	Validators
+} from "@angular/forms";
+import { Operation } from "../operation.class";
 
 @Component({
-  selector: 'cf-new',
-  templateUrl: './new.component.html',
-  styles: []
+	selector: "cf-new",
+	templateUrl: "./new.component.html",
+	styles: []
 })
 export class NewComponent implements OnInit {
-  @Input() public numberOfOperations = 0;
-  @Output() public save = new EventEmitter<Operation>();
+	@Input() public numberOfOperations = 0;
+	@Output() public save = new EventEmitter<Operation>();
 
-  public kindsOfOperations = ['Income', 'Expense'];
-  public operation: Operation = new Operation();
-  public title = 'New Operation';
+	public operationsFrom: FormGroup;
+	public kindsOfOperations = ["Income", "Expense"];
+	// public operation: Operation = new Operation();
+	public title = "New Operation";
 
-  constructor() {}
+	constructor(private formBuilder: FormBuilder) {}
 
-  public ngOnInit() {}
-
-  public saveOperation() {
-    this.save.emit(this.operation);
-    this.operation = new Operation();
-  }
+	public ngOnInit() {
+		this.buildForm();
+	}
+	private buildForm() {
+		this.operationsFrom = this.formBuilder.group({
+			description: [
+				"",
+				[Validators.required, Validators.minLength(3)]
+			],
+			amount: [0, [Validators.required, Validators.min(0)]],
+			kind: this.kindsOfOperations[0]
+		});
+	}
+	public saveOperation() {
+		this.save.emit(this.operationsFrom.value);
+		this.operationsFrom.setValue({
+			description: "",
+			amount: 0,
+			kind: this.kindsOfOperations[0]
+		});
+	}
 }
