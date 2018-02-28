@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ComponentsModule } from "../../lib/components/components.module";
 import { ItemComponent } from "./item/item.component";
 import { ListComponent } from "./list/list.component";
 import { NewComponent } from "./new/new.component";
@@ -11,6 +12,7 @@ import { OperationsService } from "./operations.service";
 @NgModule({
 	imports: [
 		CommonModule,
+		ComponentsModule,
 		OperationsRoutingModule,
 		ReactiveFormsModule
 	],

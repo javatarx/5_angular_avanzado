@@ -23,7 +23,6 @@ export class NewComponent implements OnInit {
 
 	public operationsFrom: FormGroup;
 	public kindsOfOperations = ["Income", "Expense"];
-	// public operation: Operation = new Operation();
 	public title = "New Operation";
 
 	constructor(private formBuilder: FormBuilder) {}
@@ -43,10 +42,6 @@ export class NewComponent implements OnInit {
 	}
 	public saveOperation() {
 		this.save.emit(this.operationsFrom.value);
-		this.operationsFrom.setValue({
-			description: "",
-			amount: 0,
-			kind: this.kindsOfOperations[0]
-		});
+		this.operationsFrom.reset();
 	}
 }

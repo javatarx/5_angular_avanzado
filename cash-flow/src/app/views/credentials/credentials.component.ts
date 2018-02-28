@@ -42,7 +42,7 @@ export class CredentialsComponent implements OnInit {
 			],
 			password: [
 				this.pageData.credential.password,
-				Validators.required
+				[Validators.required, Validators.minLength(4)]
 			]
 		});
 	}

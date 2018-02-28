@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import {
+	AbstractControl,
+	FormControl,
+	Validators
+} from "@angular/forms";
 
 @Component({
 	selector: "cf-control-error",
@@ -15,6 +19,26 @@ export class ControlErrorComponent implements OnInit {
 	ngOnInit() {}
 
 	public hasErrorsToShow() {
-		return true;
+		this.errorMessage = "";
+		if (this.formControl) {
+			if (
+				this.formControl.touched &&
+				this.formControl.invalid
+			) {
+				this.errorMessage = this.getErrorMessage(
+					this.formControl.errors
+				);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private getErrorMessage(errors): string {
+		let errorMessage = "";
+		Object.keys(errors).forEach(element => {
+			errorMessage += element.toString();
+		});
+		return errorMessage;
 	}
 }

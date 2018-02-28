@@ -5,10 +5,12 @@
 	<input name="description"
 	       formControlName="description"
 	       type="text" />
+	<cf-control-error [formControl]="operationsFrom.controls['description']"></cf-control-error>
 	<label for="amount">Amount</label>
 	<input name="amount"
 	       formControlName="amount"
 	       type="number" />
+	<cf-control-error [formControl]="operationsFrom.controls['amount']"></cf-control-error>
 	<label>Kind of Operation</label>
 	<select name="kind"
 	        formControlName="kind">
