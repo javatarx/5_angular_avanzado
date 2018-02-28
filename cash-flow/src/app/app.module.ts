@@ -1,20 +1,21 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { AppRoutingModule } from "./app.routing";
-
+import { BrowserModule } from "@angular/platform-browser";
 import { ServiceWorkerModule } from "@angular/service-worker";
-import { AppComponent } from "./app.component";
-
 import { environment } from "../environments/environment";
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app.routing";
 import { LibModule } from "./lib/lib.module";
+import { HomeModule } from "./views/home/home.module";
+import { NotFoundModule } from "./views/not-found/not-found.module";
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
-		LibModule,
-		BrowserModule,
 		AppRoutingModule,
+		BrowserModule,
+		HomeModule,
+		LibModule,
+		NotFoundModule,
 		ServiceWorkerModule.register("/ngsw-worker.js", {
 			enabled: environment.production
 		})
