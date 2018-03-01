@@ -6,8 +6,8 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StoreService } from "../../lib/store.service";
+import { ValidatePassword } from "../../lib/tools/custom_validators";
 import { CredentialsService } from "./credentials.service";
-
 @Component({
 	selector: "cf-credentials",
 	templateUrl: "./credentials.component.html",
@@ -38,11 +38,15 @@ export class CredentialsComponent implements OnInit {
 		this.credentialsForm = this.formBuilder.group({
 			email: [
 				this.pageData.credential.email,
-				Validators.required
+				[Validators.required, Validators.email]
 			],
 			password: [
 				this.pageData.credential.password,
-				[Validators.required, Validators.minLength(4)]
+				[
+					Validators.required,
+					Validators.minLength(4),
+					ValidatePassword
+				]
 			]
 		});
 	}
