@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import {
 	AbstractControl,
 	FormControl,
+	FormGroup,
 	Validators
 } from "@angular/forms";
 
@@ -11,7 +12,8 @@ import {
 	styles: []
 })
 export class ControlErrorComponent implements OnInit {
-	@Input() formControl: FormControl;
+	@Input() formGroup: FormGroup;
+	@Input() controlName: string;
 
 	public errorMessage = "--";
 	constructor() {}
@@ -20,13 +22,13 @@ export class ControlErrorComponent implements OnInit {
 
 	public hasErrorsToShow() {
 		this.errorMessage = "";
-		if (this.formControl) {
-			if (
-				this.formControl.touched &&
-				this.formControl.invalid
-			) {
+		const formControl = this.formGroup.controls[
+			this.controlName
+		];
+		if (formControl) {
+			if (formControl.touched && formControl.invalid) {
 				this.errorMessage = this.getErrorMessage(
-					this.formControl.errors
+					formControl.errors
 				);
 				return true;
 			}

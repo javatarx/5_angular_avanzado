@@ -1,23 +1,31 @@
 <h2>{{ title | uppercase }}</h2>
 <form [formGroup]="operationsFrom"
       class="container">
-	<label for="description">Description</label>
-	<input name="description"
-	       formControlName="description"
-	       type="text" />
-	<cf-control-error [formControl]="operationsFrom.controls['description']"></cf-control-error>
-	<label for="amount">Amount</label>
-	<input name="amount"
-	       formControlName="amount"
-	       type="number" />
-	<cf-control-error [formControl]="operationsFrom.controls['amount']"></cf-control-error>
-	<label>Kind of Operation</label>
-	<select name="kind"
-	        formControlName="kind">
-		<option [value]="">Please select a kind</option>
-		<option *ngFor="let kind of kindsOfOperations"
-		        [value]="kind">{{kind}}</option>
-	</select>
+	<cf-control [formGroup]="operationsFrom"
+	            controlName="description"
+	            controlLabel="Description">
+		<input name="description"
+		       formControlName="description"
+		       autocomplete="operation description"
+		       type="text" />
+	</cf-control>
+	<cf-control [formGroup]="operationsFrom"
+	            controlName="amount"
+	            controlLabel="Amount">
+		<input name="description"
+		       formControlName="amount"
+		       type="number" />
+	</cf-control>
+	<cf-control [formGroup]="operationsFrom"
+	            controlName="kind"
+	            controlLabel="Kind of Operation">
+		<select name="kind"
+		        formControlName="kind">
+			<option [value]="">Please select a kind</option>
+			<option *ngFor="let kind of kindsOfOperations"
+			        [value]="kind">{{kind}}</option>
+		</select>
+	</cf-control>
 	<button [disabled]="operationsFrom.invalid"
 	        (click)="saveOperation()">Save</button>
 </form>
