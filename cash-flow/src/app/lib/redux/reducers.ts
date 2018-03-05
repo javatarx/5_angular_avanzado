@@ -7,7 +7,7 @@ export const initialState: UserState = {
 	token: ""
 };
 
-export function reducer(
+export function userReducer(
 	state: UserState = initialState,
 	action: IAction
 ) {

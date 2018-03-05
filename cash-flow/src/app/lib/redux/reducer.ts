@@ -1,6 +1,6 @@
-export class Reducer {
+export class Slice {
 	constructor(
 		public key: string,
-		public reduce: (any, string) => any
+		public reducer: (any, IAction) => any
 	) {}
 }

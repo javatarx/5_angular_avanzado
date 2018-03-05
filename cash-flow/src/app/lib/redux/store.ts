@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { IAction } from "./action";
-import { Reducer } from "./reducer";
+import { Slice } from "./reducer";
 @Injectable()
 export class Store {
 	private state: { [key: string]: any };
 	private subscribers = [];
 
-	constructor(private reducers: Reducer[], initialState = {}) {
+	constructor(private slices: Slice[], initialState = {}) {
 		this.subscribers = [];
-		this.reducers = reducers;
+		this.slices = slices;
 		this.state = this.reduce(initialState, { type: "" });
 	}
 
@@ -34,9 +34,9 @@ export class Store {
 
 	private reduce(state, action: IAction) {
 		const newState = {};
-		this.reducers.forEach(reducer => {
-			newState[reducer.key] = reducer.reduce(
-				state[reducer.key],
+		this.slices.forEach(slice => {
+			newState[slice.key] = slice.reducer(
+				state[slice.key],
 				action
 			);
 		});

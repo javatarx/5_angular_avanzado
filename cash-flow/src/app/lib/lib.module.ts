@@ -5,8 +5,8 @@ import {
 import { NgModule } from "@angular/core";
 import { CatchInterceptorService } from "./catch-interceptor.service";
 import { ComponentsModule } from "./components/components.module";
-import { Reducer } from "./redux/reducer";
-import { reducer } from "./redux/reducers";
+import { Slice } from "./redux/reducer";
+import { userReducer } from "./redux/reducers";
 import { Store } from "./redux/store";
 import { StoreService } from "./store.service";
 import { TokenInterceptorService } from "./token-interceptor.service";
@@ -28,7 +28,7 @@ import { TokenInterceptorService } from "./token-interceptor.service";
 		StoreService,
 		{
 			provide: Store,
-			useValue: new Store([new Reducer("Users", reducer)])
+			useValue: new Store([new Slice("Users", userReducer)])
 		}
 	]
 })
