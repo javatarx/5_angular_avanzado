@@ -28,7 +28,6 @@ export class Store {
 
 	private notifySubscribers() {
 		this.subscribers.forEach(subscriber => {
-			console.log("notifySubscribers:", this.value);
 			subscriber(this.value);
 		});
 	}

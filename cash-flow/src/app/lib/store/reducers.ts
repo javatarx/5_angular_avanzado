@@ -1,16 +1,19 @@
 import { Action } from "./action";
 import * as actions from "./actions";
+import { UserState } from "./userState";
 
-export const initialState = {
+export const initialState: UserState = {
 	isAnonymous: true,
 	token: ""
 };
 
-export function reducer(state = initialState, action: Action) {
+export function reducer(
+	state: UserState = initialState,
+	action: Action
+) {
 	switch (action.type) {
 		case actions.LOGIN_USER: {
 			const token = action.payload;
-			console.log("reducer:action.payload:", token);
 			return {
 				...state,
 				isAnonymous: token === null,

@@ -67,7 +67,6 @@ export class CredentialsComponent implements OnInit {
 	private acceptedCredentials = responseData => {
 		if (responseData && responseData.token) {
 			// this.store.setUserToken(responseData.token);
-			console.log("acceptedCredentials:", responseData.token);
 			this.st.dispatch(new LoginUser(responseData.token));
 			this.router.navigateByUrl("/");
 		} else {
