@@ -5,10 +5,10 @@ import {
 import { NgModule } from "@angular/core";
 import { CatchInterceptorService } from "./catch-interceptor.service";
 import { ComponentsModule } from "./components/components.module";
+import { Reducer } from "./redux/reducer";
+import { reducer } from "./redux/reducers";
+import { Store } from "./redux/store";
 import { StoreService } from "./store.service";
-import { Reducer } from "./store/reducer";
-import { reducer } from "./store/reducers";
-import { Store } from "./store/store";
 import { TokenInterceptorService } from "./token-interceptor.service";
 
 @NgModule({

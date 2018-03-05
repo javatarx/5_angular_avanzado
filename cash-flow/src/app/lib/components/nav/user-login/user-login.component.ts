@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";
-import { Store } from "../../../store/store";
+import { Store } from "../../../redux/store";
 
 @Component({
 	selector: "cf-user-login",

@@ -6,8 +6,8 @@ import {
 } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
+import { Store } from "./redux/store";
 import { StoreService } from "./store.service";
-import { Store } from "./store/store";
 
 @Injectable()
 export class TokenInterceptorService

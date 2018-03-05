@@ -5,9 +5,8 @@ import {
 	Validators
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { StoreService } from "../../lib/store.service";
-import { LoginUser } from "../../lib/store/actions";
-import { Store } from "../../lib/store/store";
+import { LoginUser } from "../../lib/redux/actions";
+import { Store } from "../../lib/redux/store";
 import { ValidatePassword } from "../../lib/tools/custom_validators";
 import { CredentialsService } from "./credentials.service";
 @Component({
@@ -25,9 +24,8 @@ export class CredentialsComponent implements OnInit {
 		private activatedRoute: ActivatedRoute,
 		private credentialsService: CredentialsService,
 		private router: Router,
-		private store: StoreService,
 		private formBuilder: FormBuilder,
-		private st: Store
+		private store: Store
 	) {}
 
 	public ngOnInit() {
@@ -66,16 +64,15 @@ export class CredentialsComponent implements OnInit {
 	}
 	private acceptedCredentials = responseData => {
 		if (responseData && responseData.token) {
-			// this.store.setUserToken(responseData.token);
-			this.st.dispatch(new LoginUser(responseData.token));
+			this.store.dispatch(new LoginUser(responseData.token));
 			this.router.navigateByUrl("/");
 		} else {
-			this.st.dispatch(new LoginUser(null));
+			this.store.dispatch(new LoginUser(null));
 			this.invalidCredentials();
 		}
 	};
 	private invalidCredentials = () => {
-		this.store.setUserToken(null);
+		this.store.dispatch(new LoginUser(null));
 		this.errorMessage = "Invalid Credentials";
 	};
 }
