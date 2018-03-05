@@ -6,6 +6,8 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StoreService } from "../../lib/store.service";
+import { LoginUser } from "../../lib/store/actions";
+import { Store } from "../../lib/store/store";
 import { ValidatePassword } from "../../lib/tools/custom_validators";
 import { CredentialsService } from "./credentials.service";
 @Component({
@@ -24,7 +26,8 @@ export class CredentialsComponent implements OnInit {
 		private credentialsService: CredentialsService,
 		private router: Router,
 		private store: StoreService,
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private st: Store
 	) {}
 
 	public ngOnInit() {
@@ -63,9 +66,12 @@ export class CredentialsComponent implements OnInit {
 	}
 	private acceptedCredentials = responseData => {
 		if (responseData && responseData.token) {
-			this.store.setUserToken(responseData.token);
+			// this.store.setUserToken(responseData.token);
+			console.log("acceptedCredentials:", responseData.token);
+			this.st.dispatch(new LoginUser(responseData.token));
 			this.router.navigateByUrl("/");
 		} else {
+			this.st.dispatch(new LoginUser(null));
 			this.invalidCredentials();
 		}
 	};
