@@ -1,4 +1,4 @@
-import { Action } from "./action";
+import { IAction } from "./action";
 import * as actions from "./actions";
 import { UserState } from "./userState";
 
@@ -9,7 +9,7 @@ export const initialState: UserState = {
 
 export function reducer(
 	state: UserState = initialState,
-	action: Action
+	action: IAction
 ) {
 	switch (action.type) {
 		case actions.LOGIN_USER: {

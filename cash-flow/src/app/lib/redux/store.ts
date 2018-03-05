@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Action } from "./action";
+import { IAction } from "./action";
 import { Reducer } from "./reducer";
 @Injectable()
 export class Store {
@@ -9,7 +9,7 @@ export class Store {
 	constructor(private reducers: Reducer[], initialState = {}) {
 		this.subscribers = [];
 		this.reducers = reducers;
-		this.state = this.reduce(initialState, new Action());
+		this.state = this.reduce(initialState, { type: "" });
 	}
 
 	get value() {
@@ -21,7 +21,7 @@ export class Store {
 		this.notifySubscribers();
 	}
 
-	dispatch(action: Action) {
+	dispatch(action: IAction) {
 		this.state = this.reduce(this.state, action);
 		this.notifySubscribers();
 	}
@@ -32,7 +32,7 @@ export class Store {
 		});
 	}
 
-	private reduce(state, action: Action) {
+	private reduce(state, action: IAction) {
 		const newState = {};
 		this.reducers.forEach(reducer => {
 			newState[reducer.key] = reducer.reduce(
