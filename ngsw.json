@@ -54,7 +54,19 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "operations-api",
+      "patterns": [
+        "https:\\/\\/api-base\\.herokuapp\\.com\\/api\\/operations"
+      ],
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "/angular_avanzado/0.ea5b3e65c7c153d507fa.chunk.js": "c6aefa67fe3ecd148ad4f5b22e0a52a6d2b22dac",
     "/angular_avanzado/assets/404.html": "e4a90de9568c8381aef44eede9f0b6af39835f05",
@@ -72,7 +84,7 @@
     "/angular_avanzado/assets/android-icon-96x96.png": "7fcf383da00985e3538447cbee77927e9c545516",
     "/angular_avanzado/favicon.ico": "afd522a68a193e0a273d2d4580a71843dca5387d",
     "/angular_avanzado/assets/apple-icon-114x114.png": "894227b793ccfc718dc8a1fc5641bd908d10d630",
-    "/angular_avanzado/index.html": "0505fa32b5efcbef715028ac55c93e8c1019fe69",
+    "/angular_avanzado/index.html": "bafff7b658b4956611608bd8c69b7f8c66a631b8",
     "/angular_avanzado/assets/apple-icon-120x120.png": "e5bd044f9e42cd9579b1b0e0ea9ff8f7f34a24ec",
     "/angular_avanzado/assets/apple-icon-144x144.png": "9ea35c28b8f8de2f6e0ff9c440f2a80b4443eb52",
     "/angular_avanzado/assets/apple-icon-152x152.png": "5594e84a8cb69f82bf9efd86d159331f14dac0ee",
