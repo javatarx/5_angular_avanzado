@@ -1,0 +1,42 @@
+{
+  "configVersion": 1,
+  "index": "/angular_avanzado/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/angular_avanzado/favicon.ico",
+        "/angular_avanzado/index.html",
+        "/angular_avanzado/0.ea5b3e65c7c153d507fa.chunk.js",
+        "/angular_avanzado/1.c78c2aa3f67e4b784d41.chunk.js",
+        "/angular_avanzado/2.1269a6fe1bd036037633.chunk.js",
+        "/angular_avanzado/inline.206bf9925408ec75c177.bundle.js",
+        "/angular_avanzado/main.8b0003f3096e0938c0a2.bundle.js",
+        "/angular_avanzado/polyfills.c58babca800ea2e8fdcf.bundle.js",
+        "/angular_avanzado/styles.ac89bfdd6de82636b768.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/angular_avanzado/0.ea5b3e65c7c153d507fa.chunk.js": "c6aefa67fe3ecd148ad4f5b22e0a52a6d2b22dac",
+    "/angular_avanzado/1.c78c2aa3f67e4b784d41.chunk.js": "60ed62dffd329fb10fb2e08a3c7771ffcfb779be",
+    "/angular_avanzado/2.1269a6fe1bd036037633.chunk.js": "937dd64551b58a2379f497d5abbf99bb6788ee03",
+    "/angular_avanzado/inline.206bf9925408ec75c177.bundle.js": "e4d05badf3965a35bd90fff923777b8b9a08c94d",
+    "/angular_avanzado/main.8b0003f3096e0938c0a2.bundle.js": "4d28110c0d87530ad03c2af61962ade9b9448f4c",
+    "/angular_avanzado/polyfills.c58babca800ea2e8fdcf.bundle.js": "56fc582e6008a9ce75f3c197fff72655a4bec048",
+    "/angular_avanzado/styles.ac89bfdd6de82636b768.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/angular_avanzado/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/angular_avanzado/index.html": "97b3f1ffd224b551e9508600524bbe66384bf99e"
+  }
+}
