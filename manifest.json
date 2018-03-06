@@ -1,7 +1,7 @@
 {
  "name": "Cash Flow",
  "short_name": "CashFlow",
- "description": "Angular application tutorial",
+ "description": "Base for an advanced project with Angular",
  "start_url": "index.html",
  "display": "standalone",
  "background_color": "#ffffff",
