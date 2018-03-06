@@ -6,8 +6,8 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
-      "assets": ["assets", "favicon.ico"],
+      "outDir": "../dist",
+      "assets": ["assets", "favicon.ico", "404.html"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",

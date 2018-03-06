@@ -16,7 +16,7 @@ import { NotFoundModule } from "./views/not-found/not-found.module";
 		HomeModule,
 		LibModule,
 		NotFoundModule,
-		ServiceWorkerModule.register("/ngsw-worker.js", {
+		ServiceWorkerModule.register("ngsw-worker.js", {
 			enabled: environment.production
 		})
 	],
