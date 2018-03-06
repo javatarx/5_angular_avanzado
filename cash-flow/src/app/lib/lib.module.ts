@@ -3,6 +3,8 @@ import {
 	HttpClientModule
 } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { StoreModule } from "@ngrx/store";
+import { blockchainReducer } from "./blokchain/blockchain.reducer";
 import { CatchInterceptorService } from "./catch-interceptor.service";
 import { ComponentsModule } from "./components/components.module";
 import { Slice } from "./redux/reducer";
@@ -12,7 +14,11 @@ import { StoreService } from "./store.service";
 import { TokenInterceptorService } from "./token-interceptor.service";
 
 @NgModule({
-	imports: [ComponentsModule, HttpClientModule],
+	imports: [
+		ComponentsModule,
+		HttpClientModule,
+		StoreModule.forRoot({ blockchain: blockchainReducer })
+	],
 	exports: [ComponentsModule],
 	providers: [
 		{

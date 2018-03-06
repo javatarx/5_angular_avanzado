@@ -1,14 +1,22 @@
-import { environment } from "../../../environments/environment";
+// tslint:disable-next-line:no-submodule-imports
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
+import { environment } from "../../../environments/environment";
+import { IAppState } from "../../lib/blokchain/app.state";
+import { IBlockchain } from "../../lib/blokchain/blockchain.model";
+import { ADD_OPERATION } from "../../lib/blokchain/blockchain.reducer";
 import { Operation } from "./operation.class";
 
 @Injectable()
 export class OperationsService {
 	private url = environment.apiUrl + "priv/operations/";
 
-	constructor(private http: HttpClient) {}
+	constructor(
+		private http: HttpClient,
+		private blockcahinStore: Store<IAppState>
+	) {}
 
 	public getNumberOfOperations$(): Observable<any> {
 		return this.http.get(this.url + "count");
@@ -23,12 +31,20 @@ export class OperationsService {
 	}
 
 	public saveOperation$(operation: Operation): Observable<any> {
+		this.blockcahinStore.dispatch({
+			type: ADD_OPERATION,
+			payload: { description: "Saving", price: 1 }
+		});
 		return this.http.post(this.url, operation);
 	}
 
 	public deleteOperation$(
 		operation: Operation
 	): Observable<any> {
+		this.blockcahinStore.dispatch({
+			type: ADD_OPERATION,
+			payload: { description: "Deleting", price: 2 }
+		});
 		return this.http.delete(this.url + operation._id);
 	}
 }
