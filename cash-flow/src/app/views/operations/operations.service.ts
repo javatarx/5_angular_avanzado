@@ -4,9 +4,8 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../../environments/environment";
-import { IAppState } from "../../lib/blokchain/app.state";
-import { IBlockchain } from "../../lib/blokchain/blockchain.model";
-import { ADD_OPERATION } from "../../lib/blokchain/blockchain.reducer";
+import { IAppState } from "../../lib/ngrx/app.state";
+import { ADD_OPERATION } from "../../lib/ngrx/blokchain/blockchain.reducer";
 import { Operation } from "./operation.class";
 
 @Injectable()
@@ -15,7 +14,7 @@ export class OperationsService {
 
 	constructor(
 		private http: HttpClient,
-		private blockcahinStore: Store<IAppState>
+		private blockchainStore: Store<IAppState>
 	) {}
 
 	public getNumberOfOperations$(): Observable<any> {
@@ -31,9 +30,12 @@ export class OperationsService {
 	}
 
 	public saveOperation$(operation: Operation): Observable<any> {
-		this.blockcahinStore.dispatch({
+		this.blockchainStore.dispatch({
 			type: ADD_OPERATION,
-			payload: { description: "Saving", price: 1 }
+			payload: {
+				description: "Saving",
+				size: JSON.stringify(operation).length
+			}
 		});
 		return this.http.post(this.url, operation);
 	}
@@ -41,9 +43,9 @@ export class OperationsService {
 	public deleteOperation$(
 		operation: Operation
 	): Observable<any> {
-		this.blockcahinStore.dispatch({
+		this.blockchainStore.dispatch({
 			type: ADD_OPERATION,
-			payload: { description: "Deleting", price: 2 }
+			payload: { description: "Deleting", size: 0 }
 		});
 		return this.http.delete(this.url + operation._id);
 	}

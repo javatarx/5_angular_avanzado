@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
-import { IAppState } from "../../blokchain/app.state";
-import { IBlockchain } from "../../blokchain/blockchain.model";
+import { IAppState } from "../../ngrx/app.state";
+import { IBlockchain } from "../../ngrx/blokchain/blockchain.model";
 
 @Component({
 	selector: "cf-footer",

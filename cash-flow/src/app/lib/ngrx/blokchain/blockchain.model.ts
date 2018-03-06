@@ -1,4 +1,5 @@
 export interface IBlockchain {
 	description: string;
-	price: number;
+	size: number;
+	timestamp: Date;
 }
