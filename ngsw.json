@@ -23,16 +23,13 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
-      "urls": [
-        "/angular_avanzado/assets/404.html"
-      ],
+      "urls": [],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
     "/angular_avanzado/0.ea5b3e65c7c153d507fa.chunk.js": "c6aefa67fe3ecd148ad4f5b22e0a52a6d2b22dac",
-    "/angular_avanzado/assets/404.html": "e4a90de9568c8381aef44eede9f0b6af39835f05",
     "/angular_avanzado/1.c78c2aa3f67e4b784d41.chunk.js": "60ed62dffd329fb10fb2e08a3c7771ffcfb779be",
     "/angular_avanzado/2.1269a6fe1bd036037633.chunk.js": "937dd64551b58a2379f497d5abbf99bb6788ee03",
     "/angular_avanzado/inline.206bf9925408ec75c177.bundle.js": "e4d05badf3965a35bd90fff923777b8b9a08c94d",
