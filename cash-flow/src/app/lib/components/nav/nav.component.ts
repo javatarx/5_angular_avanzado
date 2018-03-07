@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'cf-nav',
-  templateUrl: './nav.component.html',
-  styles: [
-  `
-    nav{
-      border-bottom: .1rem solid;
-    }
-  `]
+	selector: "cf-nav",
+	templateUrl: "./nav.component.html",
+	styles: []
 })
 export class NavComponent implements OnInit {
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	ngOnInit() {}
 }

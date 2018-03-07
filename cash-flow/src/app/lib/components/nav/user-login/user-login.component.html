@@ -1,6 +1,8 @@
 <a *ngIf="userIsAnonymous; else logged"
    mat-button
-   routerLink="/credentials/login">Log In</a>
+   routerLink="/credentials/login">
+	Log In</a>
 <ng-template #logged>
-	<i>Hello!!!</i>
+	<mat-icon>face</mat-icon>
+	<em>Hello!!!</em>
 </ng-template>

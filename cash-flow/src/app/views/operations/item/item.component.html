@@ -1,4 +1,21 @@
-<h2>Operation Details</h2>
-<h3>{{ operation | json }}</h3>
-<h4>{{ message }}</h4>
-<h5>{{ fullError | json }}</h5>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>
+			<h2>Operation Details</h2>
+		</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<h3>{{ operation | json }}</h3>
+	</mat-card-content>
+</mat-card>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>
+			<h2>Messages</h2>
+		</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<h4>{{ message }}</h4>
+		<h5>{{ fullError | json }}</h5>
+	</mat-card-content>
+</mat-card>

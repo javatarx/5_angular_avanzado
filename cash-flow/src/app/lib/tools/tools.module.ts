@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {
 	MatButtonModule,
 	MatCardModule,
+	MatDividerModule,
 	MatFormField,
 	MatFormFieldModule,
 	MatIconModule,
@@ -30,7 +31,8 @@ import { ControlComponent } from "./control/control.component";
 		MatToolbarModule,
 		MatInputModule,
 		MatSelectModule,
-		MatTableModule
+		MatTableModule,
+		MatDividerModule
 	],
 	declarations: [ControlErrorComponent, ControlComponent],
 	exports: [
@@ -45,7 +47,8 @@ import { ControlComponent } from "./control/control.component";
 		MatToolbarModule,
 		MatInputModule,
 		MatSelectModule,
-		MatTableModule
+		MatTableModule,
+		MatDividerModule
 	]
 })
 export class ToolsModule {}

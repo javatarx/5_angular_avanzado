@@ -34,10 +34,12 @@
 	        [disabled]="operationsFrom.invalid"
 	        (click)="saveOperation()">Save</button>
 </form>
-<blockquote fxLayout="column"
-            fxLayoutAlign="center center">
-	<span>
+<mat-card fxLayout="column"
+          fxLayoutAlign="center center">
+	<mat-card-title>
 		Number of Operations: {{ numberOfOperations }}
-	</span>
-	<em>Current: {{ operationsFrom.value | json }}</em>
-</blockquote>
+	</mat-card-title>
+	<mat-card-content>
+		<em>Current: {{ operationsFrom.value | json }}</em>
+	</mat-card-content>
+</mat-card>

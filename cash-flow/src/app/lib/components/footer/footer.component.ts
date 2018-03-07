@@ -7,13 +7,7 @@ import { IBlockchain } from "../../ngrx/blokchain/blockchain.model";
 @Component({
 	selector: "cf-footer",
 	templateUrl: "./footer.component.html",
-	styles: [
-		`
-  footer{
-    border-top: .1rem solid;
-  }
-`
-	]
+	styles: []
 })
 export class FooterComponent implements OnInit {
 	blocks$: Observable<IBlockchain[]>;
