@@ -1,28 +1,56 @@
-<h2>{{ title | uppercase }}</h2>
-<table *ngIf="numberOfOperations>0;else emptyList">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Description</th>
-      <th>Kind</th>
-      <th>Amount</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let operation of operations">
-      <td>
-        <a [routerLink]="[operation._id]">{{ operation._id }}</a>
-      </td>
-      <td>{{ operation.description }}</td>
-      <td>{{ operation.kind }}</td>
-      <td style="float:right">{{ operation.amount }}</td>
-      <td>
-        <button (click)="deleteOperation(operation)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<ng-template #emptyList>
-  <h3>No operations yet.</h3>
-</ng-template>
+<main fxLayout="column"
+      fxFlexFill
+      fxLayoutGap="10px">
+	<h2>{{ title | uppercase }}</h2>
+	<table *ngIf="numberOfOperations>0;else emptyList"
+	       fxFlex="100"
+	       fxLayout="column">
+		<thead fxLayout="column">
+			<tr fxLayout="row"
+			    fxFlexFill>
+				<th fxFlex="30"
+				    fxLayoutAlign="start center">Id</th>
+				<th fxFlex="30"
+				    fxLayoutAlign="start center"
+				    fxHide.xs>Description</th>
+				<th fxFlex="20"
+				    fxLayoutAlign="start center">Kind</th>
+				<th fxFlex="10"
+				    fxLayoutAlign="end center"
+				    fxFlex.xs="25">Amount</th>
+				<th fxFlex="10"
+				    fxLayoutAlign="end center"
+				    fxFlex.xs="25">Delete</th>
+			</tr>
+		</thead>
+		<tbody fxLayout="column">
+			<tr *ngFor="let operation of operations"
+			    fxLayout="row"
+			    fxFlexFill>
+				<td fxFlex="30"
+				    fxLayoutAlign="start center">
+					<a [routerLink]="[operation._id]">{{ operation._id }}</a>
+				</td>
+				<td fxFlex="30"
+				    fxLayoutAlign="start center"
+				    fxHide.xs>{{ operation.description }}</td>
+				<td fxFlex="20"
+				    fxLayoutAlign="start center">{{ operation.kind }}</td>
+				<td fxFlex="10"
+				    fxLayout="row"
+				    fxLayoutAlign="end center"
+				    fxFlex.xs="25">
+					{{ operation.amount }}</td>
+				<td fxFlex="10"
+				    fxLayoutAlign="end center"
+				    fxFlex.xs="25">
+					<button (click)="deleteOperation(operation)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<ng-template #emptyList>
+		<h3>No operations yet.</h3>
+	</ng-template>
+
+</main>

@@ -1,6 +1,10 @@
 <h2>{{ title | uppercase }}</h2>
 <form [formGroup]="operationsFrom"
-      class="container">
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      fxLayout.lt-md="column"
+      fxLayoutAlign.lt-md="space-between start"
+      fxLayoutGap="10px">
 	<cf-control [formGroup]="operationsFrom"
 	            controlName="description"
 	            controlLabel="Description">
@@ -29,7 +33,10 @@
 	<button [disabled]="operationsFrom.invalid"
 	        (click)="saveOperation()">Save</button>
 </form>
-<blockquote>
-	Number of Operations:{{ numberOfOperations }}
+<blockquote fxLayout="column"
+            fxLayoutAlign="center center">
+	<span>
+		Number of Operations: {{ numberOfOperations }}
+	</span>
 	<em>Current: {{ operationsFrom.value | json }}</em>
 </blockquote>

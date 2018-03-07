@@ -8,7 +8,8 @@ import { CredentialsService } from "./credentials.service";
 	imports: [
 		CommonModule,
 		ToolsModule,
-		CredentialsRoutingModule
+		CredentialsRoutingModule,
+		ToolsModule
 	],
 	declarations: [CredentialsComponent],
 	providers: [CredentialsService]
