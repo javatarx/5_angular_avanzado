@@ -11,7 +11,6 @@ import { IBlockchain } from "../../ngrx/blokchain/blockchain.model";
 		`
   footer{
     border-top: .1rem solid;
-    text-align: center;
   }
 `
 	]

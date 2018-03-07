@@ -8,9 +8,10 @@ import { NavComponent } from "./nav/nav.component";
 import { TitleComponent } from "./nav/title/title.component";
 import { UserLoginComponent } from "./nav/user-login/user-login.component";
 import { UserMessageComponent } from "./nav/user-message/user-message.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
-	imports: [CommonModule, RouterModule],
+	imports: [CommonModule, RouterModule, FlexLayoutModule],
 	declarations: [
 		NavComponent,
 		FooterComponent,

@@ -1,12 +1,19 @@
-<footer>
-	Developed by
-	<a href="https://twitter.com/albertobasalo">Alberto Basalo</a>
-	for
-	<a href="https://academia-binaria.com/categories/Tutorial/Angular/"> Advanced Angular 5 Tutorial</a>
-	<blockquote>
-		<p>
-			<em>Learn, Code, Enjoy, Repeat.</em>
-		</p>
+<footer fxLayout="column">
+	<span fxLayout="row"
+	      fxLayoutAlign="space-between center">
+		<span>
+			Developed by
+			<a href="https://twitter.com/albertobasalo">Alberto Basalo</a>
+		</span>
+		<span>
+			for
+			<a href="https://academia-binaria.com/categories/Tutorial/Angular/"> Advanced Angular 5 Tutorial</a>
+		</span>
+	</span>
+	<blockquote fxLayoutAlign="center center">
+		<em>Learn, Code, Enjoy, Repeat.</em>
 	</blockquote>
-	{{ blocks$ | async | json }}
+	<div fxLayoutAlign="center center">
+		{{ blocks$ | async | json }}
+	</div>
 </footer>
