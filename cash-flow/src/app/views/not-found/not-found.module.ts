@@ -1,11 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { NotFoundComponent } from "./not-found.component";
 import { RouterModule } from "@angular/router";
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { ToolsModule } from "../../lib/tools/tools.module";
+import { NotFoundComponent } from "./not-found.component";
 
 @NgModule({
-	imports: [CommonModule, RouterModule, FlexLayoutModule],
+	imports: [CommonModule, RouterModule, ToolsModule],
 	declarations: [NotFoundComponent],
 	exports: [NotFoundComponent]
 })
