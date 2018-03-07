@@ -17,6 +17,14 @@ export class ListComponent implements OnInit {
 	@Input() public operations: Operation[] = [];
 	@Output() public delete = new EventEmitter<Operation>();
 
+	displayedColumns = [
+		"_id",
+		"description",
+		"kind",
+		"amount",
+		"delete"
+	];
+
 	public title = "List of Operations";
 	constructor() {}
 

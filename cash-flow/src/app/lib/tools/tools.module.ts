@@ -10,8 +10,9 @@ import {
 	MatIconModule,
 	MatInputModule,
 	MatMenuModule,
-	MatToolbarModule,
-	MatSelectModule
+	MatSelectModule,
+	MatTableModule,
+	MatToolbarModule
 } from "@angular/material";
 import { ControlErrorComponent } from "./control-error/control-error.component";
 import { ControlComponent } from "./control/control.component";
@@ -28,7 +29,8 @@ import { ControlComponent } from "./control/control.component";
 		MatMenuModule,
 		MatToolbarModule,
 		MatInputModule,
-		MatSelectModule
+		MatSelectModule,
+		MatTableModule
 	],
 	declarations: [ControlErrorComponent, ControlComponent],
 	exports: [
@@ -42,7 +44,8 @@ import { ControlComponent } from "./control/control.component";
 		MatMenuModule,
 		MatToolbarModule,
 		MatInputModule,
-		MatSelectModule
+		MatSelectModule,
+		MatTableModule
 	]
 })
 export class ToolsModule {}
