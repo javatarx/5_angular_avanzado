@@ -5,7 +5,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {
 	MatButtonModule,
 	MatCardModule,
+	MatFormField,
+	MatFormFieldModule,
 	MatIconModule,
+	MatInputModule,
 	MatMenuModule,
 	MatToolbarModule
 } from "@angular/material";
@@ -19,9 +22,11 @@ import { ControlComponent } from "./control/control.component";
 		FlexLayoutModule,
 		MatButtonModule,
 		MatCardModule,
+		MatFormFieldModule,
 		MatIconModule,
 		MatMenuModule,
-		MatToolbarModule
+		MatToolbarModule,
+		MatInputModule
 	],
 	declarations: [ControlErrorComponent, ControlComponent],
 	exports: [
@@ -30,9 +35,11 @@ import { ControlComponent } from "./control/control.component";
 		FlexLayoutModule,
 		MatButtonModule,
 		MatCardModule,
+		MatFormFieldModule,
 		MatIconModule,
 		MatMenuModule,
-		MatToolbarModule
+		MatToolbarModule,
+		MatInputModule
 	]
 })
 export class ToolsModule {}

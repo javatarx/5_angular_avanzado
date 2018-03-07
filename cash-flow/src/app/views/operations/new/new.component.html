@@ -5,21 +5,22 @@
       fxLayout.lt-md="column"
       fxLayoutAlign.lt-md="space-between start"
       fxLayoutGap="10px">
-	<cf-control [formGroup]="operationsFrom"
-	            controlName="description"
-	            controlLabel="Description">
-		<input name="description"
+	<mat-form-field>
+		<input matInput
+		       name="description"
 		       formControlName="description"
-		       autocomplete="operation description"
+		       placeholder="Description"
 		       type="text" />
-	</cf-control>
-	<cf-control [formGroup]="operationsFrom"
-	            controlName="amount"
-	            controlLabel="Amount">
-		<input name="description"
+		<mat-error *ngIf="operationsFrom.controls['description'].invalid">"Invalid description"</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput
+		       name="amount"
 		       formControlName="amount"
-		       type="number" />
-	</cf-control>
+		       placeholder="Amount"
+		       type="text" />
+		<mat-error *ngIf="operationsFrom.controls['amount'].invalid">"Invalid amount"</mat-error>
+	</mat-form-field>
 	<cf-control [formGroup]="operationsFrom"
 	            controlName="kind"
 	            controlLabel="Kind of Operation">
