@@ -21,16 +21,14 @@
 		       type="text" />
 		<mat-error *ngIf="operationsFrom.controls['amount'].invalid">"Invalid amount"</mat-error>
 	</mat-form-field>
-	<cf-control [formGroup]="operationsFrom"
-	            controlName="kind"
-	            controlLabel="Kind of Operation">
-		<select name="kind"
-		        formControlName="kind">
-			<option [value]="">Please select a kind</option>
-			<option *ngFor="let kind of kindsOfOperations"
-			        [value]="kind">{{kind}}</option>
-		</select>
-	</cf-control>
+	<mat-form-field>
+		<mat-select placeholder="Kind of Operation">
+			<mat-option *ngFor="let kind of kindsOfOperations"
+			            [value]="kind">
+				{{ kind }}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
 	<button mat-button
 	        color="primary"
 	        [disabled]="operationsFrom.invalid"
