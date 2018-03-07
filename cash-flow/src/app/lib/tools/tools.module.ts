@@ -1,20 +1,38 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from "@angular/forms";
+import {
+	MatButtonModule,
+	MatCardModule,
+	MatIconModule,
+	MatMenuModule,
+	MatToolbarModule
+} from "@angular/material";
 import { ControlErrorComponent } from "./control-error/control-error.component";
 import { ControlComponent } from "./control/control.component";
-import { FlexLayoutModule } from "@angular/flex-layout";
+
 @NgModule({
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
-		FlexLayoutModule
+		FlexLayoutModule,
+		MatButtonModule,
+		MatCardModule,
+		MatIconModule,
+		MatMenuModule,
+		MatToolbarModule
 	],
 	declarations: [ControlErrorComponent, ControlComponent],
 	exports: [
 		ControlComponent,
 		ReactiveFormsModule,
-		FlexLayoutModule
+		FlexLayoutModule,
+		MatButtonModule,
+		MatCardModule,
+		MatIconModule,
+		MatMenuModule,
+		MatToolbarModule
 	]
 })
 export class ToolsModule {}
