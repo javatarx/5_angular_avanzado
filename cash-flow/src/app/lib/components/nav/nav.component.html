@@ -1,8 +1,10 @@
-<nav fxLayout
-     fxLayoutAlign="space-between center"
-     fxLayout.xs="column">
+<mat-toolbar color="primary"
+             fxLayout
+             fxLayoutAlign="space-between center"
+             fxLayout.xs="column">
 	<cf-title></cf-title>
-	<a routerLink="/operations">Operations</a>
+	<a mat-button
+	   routerLink="/operations">Operations</a>
 	<cf-user-login></cf-user-login>
 	<cf-user-message></cf-user-message>
-</nav>
+</mat-toolbar>
