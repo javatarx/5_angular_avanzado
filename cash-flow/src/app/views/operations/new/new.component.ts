@@ -21,7 +21,7 @@ export class NewComponent implements OnInit {
 	@Input() public numberOfOperations = 0;
 	@Output() public save = new EventEmitter<Operation>();
 
-	public operationsFrom: FormGroup;
+	public operationsForm: FormGroup;
 	public kindsOfOperations = ["Income", "Expense"];
 	public title = "New Operation";
 
@@ -31,7 +31,7 @@ export class NewComponent implements OnInit {
 		this.buildForm();
 	}
 	private buildForm() {
-		this.operationsFrom = this.formBuilder.group({
+		this.operationsForm = this.formBuilder.group({
 			description: [
 				"",
 				[Validators.required, Validators.minLength(3)]
@@ -41,7 +41,7 @@ export class NewComponent implements OnInit {
 		});
 	}
 	public saveOperation() {
-		this.save.emit(this.operationsFrom.value);
-		this.operationsFrom.reset();
+		this.save.emit(this.operationsForm.value);
+		this.operationsForm.reset();
 	}
 }

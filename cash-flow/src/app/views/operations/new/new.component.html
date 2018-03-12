@@ -1,7 +1,7 @@
 <h2>{{ title | uppercase }}</h2>
-<form [formGroup]="operationsFrom"
+<form [formGroup]="operationsForm"
       class="container">
-	<cf-control [formGroup]="operationsFrom"
+	<cf-control [formGroup]="operationsForm"
 	            controlName="description"
 	            controlLabel="Description">
 		<input name="description"
@@ -9,14 +9,14 @@
 		       autocomplete="operation description"
 		       type="text" />
 	</cf-control>
-	<cf-control [formGroup]="operationsFrom"
+	<cf-control [formGroup]="operationsForm"
 	            controlName="amount"
 	            controlLabel="Amount">
 		<input name="description"
 		       formControlName="amount"
 		       type="number" />
 	</cf-control>
-	<cf-control [formGroup]="operationsFrom"
+	<cf-control [formGroup]="operationsForm"
 	            controlName="kind"
 	            controlLabel="Kind of Operation">
 		<select name="kind"
@@ -26,10 +26,10 @@
 			        [value]="kind">{{kind}}</option>
 		</select>
 	</cf-control>
-	<button [disabled]="operationsFrom.invalid"
+	<button [disabled]="operationsForm.invalid"
 	        (click)="saveOperation()">Save</button>
 </form>
 <blockquote>
 	Number of Operations:{{ numberOfOperations }}
-	<em>Current: {{ operationsFrom.value | json }}</em>
+	<em>Current: {{ operationsForm.value | json }}</em>
 </blockquote>
