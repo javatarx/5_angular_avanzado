@@ -19,6 +19,7 @@ import { ControlErrorComponent } from "./control-error/control-error.component";
 import { ControlComponent } from "./control/control.component";
 
 @NgModule({
+	declarations: [ControlErrorComponent, ControlComponent],
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
@@ -34,7 +35,6 @@ import { ControlComponent } from "./control/control.component";
 		MatTableModule,
 		MatDividerModule
 	],
-	declarations: [ControlErrorComponent, ControlComponent],
 	exports: [
 		ControlComponent,
 		ReactiveFormsModule,
