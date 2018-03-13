@@ -16,9 +16,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 ```html
 <div fxLayout="column"
-		 fxLayoutAlign="space-between center"
-		 fxFlexFill
-		 fxLayoutGap="20px">
+	fxLayoutAlign="space-between center"
+	fxFlexFill
+	fxLayoutGap="20px">
 </div>
 ```
 
@@ -26,8 +26,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 ```html
 <div fxLayout="row"
-		 fxLayout.lg="column"
-		 fxLayoutAlign.lt-md="space-between start"
-		 fxHide.xs>
+	fxLayout.lg="column"
+	fxLayoutAlign.lt-md="space-between start"
+	fxHide.xs>
 </div>
 ```

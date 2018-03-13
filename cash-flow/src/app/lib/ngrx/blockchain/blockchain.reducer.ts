@@ -13,14 +13,11 @@ export function blockchainReducer(
 			const previousBlock = state[state.length - 1];
 			block.index = state.length;
 			block.timestamp = new Date();
-			if (previousBlock) {
-				block.previousHash = previousBlock.hash;
-			} else {
-				block.previousHash = "";
-			}
-			block.hash = (
-				JSON.stringify(block).length * +block.timestamp
-			)
+			block.previousHash = previousBlock
+				? previousBlock.hash
+				: "";
+			block.hash = block.timestamp
+				.getTime()
 				.toExponential(10)
 				.substring(2, 12);
 			return [...state, action.payload];
