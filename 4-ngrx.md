@@ -25,7 +25,7 @@ constructor(private store: Store<IAppState>) {}
 ### Dispatching
 
 ```typescript
-this.theStore.dispatch({
+this.store.dispatch({
 	type: AN_OPERATION,
 	payload: { property: 'value' }
 });

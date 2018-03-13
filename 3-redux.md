@@ -9,12 +9,14 @@ Tutorial avanzado de programación con Angular
 * Store {}
   * state {}
 * action{}
-  * type "[slice] name" \* payload
+  * type "[slice] name"
+  * payload
 * reducer()
-  * state \* action
+  * state
+  * action
 * slice
-  _ property
-  _ reducer
+  * property
+  * reducer
 
 ### Flow
 
