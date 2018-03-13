@@ -6,7 +6,7 @@ Tutorial avanzado de programación con Angular
 
 ### CLI
 
-* ng new myApp --service-worke
+* ng new myApp --service-worker
 
 ```json
 .angular-cli.json "serviceWorker": true
