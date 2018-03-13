@@ -87,7 +87,8 @@
       "rxjs",
       "@angular/platform-browser",
       "@angular/core/testing",
-      "@angular/router/testing",
+			"@angular/router/testing",
+			"@angular/common/http",
       "@angular/common/http/testing"
     ],
     "complexity": ["warn", 4],
