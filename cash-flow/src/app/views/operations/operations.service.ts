@@ -5,7 +5,7 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../../environments/environment";
 import { IAppState } from "../../lib/ngrx/app.state";
-import { ADD_OPERATION } from "../../lib/ngrx/blokchain/blockchain.reducer";
+import { ADD_OPERATION } from "../../lib/ngrx/blockchain/blockchain.reducer";
 import { Operation } from "./operation.class";
 
 @Injectable()

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
 import { IAppState } from "../../ngrx/app.state";
-import { IBlockchain } from "../../ngrx/blokchain/blockchain.model";
+import { IBlock } from "../../ngrx/blockchain/block.model";
 
 @Component({
 	selector: "cf-footer",
@@ -16,7 +16,7 @@ import { IBlockchain } from "../../ngrx/blokchain/blockchain.model";
 	]
 })
 export class FooterComponent implements OnInit {
-	blocks$: Observable<IBlockchain[]>;
+	blocks$: Observable<IBlock[]>;
 
 	constructor(private store: Store<IAppState>) {}
 

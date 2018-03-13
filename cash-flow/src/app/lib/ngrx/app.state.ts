@@ -1,5 +1,5 @@
-import { IBlockchain } from "./blokchain/blockchain.model";
+import { IBlock } from "./blockchain/block.model";
 
 export interface IAppState {
-	readonly blockchain: IBlockchain[];
+	readonly blockchain: IBlock[];
 }
