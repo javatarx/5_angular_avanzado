@@ -11,7 +11,7 @@ Tutorial avanzado de programación con Angular
 ### index.html
 
 ```html
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
 ### Shared tools module
@@ -74,7 +74,7 @@ import {
 </mat-toolbar>
 <mat-divider [inset]="true"></mat-divider>
 <mat-table   #table
-						 [dataSource]="operations">
+	[dataSource]="operations">
 </mat-table>
 ```
 
@@ -89,11 +89,11 @@ import {
 
 ```html
 <mat-form-field>
-		<input matInput
-		       name="email"
-		       formControlName="email"
-		       placeholder="your email"
-		       type="email" />
-		<mat-error *ngIf="theForm.controls['email'].invalid">"Invalid Email"</mat-error>
-	</mat-form-field>
+	<input matInput
+		name="email"
+		formControlName="email"
+		placeholder="your email"
+		type="email" />
+	<mat-error *ngIf="theForm.controls['email'].invalid">"Invalid Email"</mat-error>
+</mat-form-field>
 ```
