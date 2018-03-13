@@ -6,7 +6,7 @@ import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
 import { CatchInterceptorService } from "./catch-interceptor.service";
 import { ComponentsModule } from "./components/components.module";
-import { blockchainReducer } from "./ngrx/blokchain/blockchain.reducer";
+import { blockchainReducer } from "./ngrx/blockchain/blockchain.reducer";
 import { Slice } from "./redux/reducer";
 import { userReducer } from "./redux/reducers";
 import { Store } from "./redux/store";
