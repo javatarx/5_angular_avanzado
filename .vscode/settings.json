@@ -3,7 +3,7 @@
 	"typescript.format.enable": true,
 	"tslint.autoFixOnSave": true,
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.colorTheme": "Winter is Coming (Light)",
+	"workbench.colorTheme": "Default Light+",
 	"prettier.arrowParens": "avoid",
 	"prettier.bracketSpacing": true,
 	"prettier.disableLanguages": [],
